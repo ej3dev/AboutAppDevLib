@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        setProperty("archivesBaseName","BaseMVVM_v"+versionName+"_"+versionCode)
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            useProguard false
+            minifyEnabled false
+            shrinkResources false
+        }
+        debug {
+            debuggable true
+            useProguard false
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    //config
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //android
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:customtabs:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "android.arch.lifecycle:runtime:${architectureVersion}"
+    implementation "android.arch.lifecycle:extensions:${architectureVersion}"
+    annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+
+    //dev
+    implementation 'com.orhanobut:logger:2.1.1'
+}

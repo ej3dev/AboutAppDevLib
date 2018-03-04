@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+// This block encapsulates custom properties and makes them available to all modules in the project.
+ext {
+    applicationId = 'net.ej3.libs.aboutappdevlib.app'
+    versionCode = 20180304
+    versionName = '0.0.1'
+    minSdkVersion = 21
+    compileSdkVersion = 27
+    targetSdkVersion = 27
+    buildToolsVersion = '27.0.2'
+    supportLibraryVersion = '27.0.2'
+    architectureVersion = '1.1.0'
+    firebaseVersion = '11.8.0'
+    firebaseUiVersion = '3.2.2'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

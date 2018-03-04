@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+try { apply from: '../.signing/signing.gradle' } catch(ignored) { println "Missing signing data" }
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        setProperty("archivesBaseName","AboutAppDevLib_v"+versionName+"_"+versionCode)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        main.res.srcDirs += [
+            'src/main/java/net/ej3/libs/aboutappdevlib/app/ui/section/about/res'
+        ]
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+}
+
+dependencies {
+    //config
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //android
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:customtabs:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "android.arch.lifecycle:runtime:${architectureVersion}"
+    implementation "android.arch.lifecycle:extensions:${architectureVersion}"
+    annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+
+    //ui
+    implementation('com.mikepenz:materialdrawer:6.0.2@aar') { transitive = true }
+    implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
+
+    //dev
+    implementation 'com.orhanobut:logger:2.1.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //modules
+    implementation project(':library')
+}
