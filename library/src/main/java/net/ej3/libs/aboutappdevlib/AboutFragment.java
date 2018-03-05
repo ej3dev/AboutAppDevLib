@@ -32,11 +32,11 @@ public class AboutFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    int tabsMode;
-    @ColorInt int tabsBackgroundColor;
-    @ColorInt int tabsNormalColor;
-    @ColorInt int tabsSelectedColor;
-    @ColorInt int tabsIndicatorColor;
+    private int tabsMode;
+    @ColorInt private int tabsBackgroundColor;
+    @ColorInt private int tabsNormalColor;
+    @ColorInt private int tabsSelectedColor;
+    @ColorInt private int tabsIndicatorColor;
     //endregion
 
 

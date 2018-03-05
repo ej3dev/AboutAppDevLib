@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:orientation="vertical">
+
+            <!-- App - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <ImageView
+                android:id="@+id/img_app_icon"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"/>
+
+            <TextView
+                android:id="@+id/txt_app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txt_app_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+            <TextView
+                android:id="@+id/txt_app_copyright"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+
+
+            <!-- Acciones  - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!--<Button-->
+                    <!--android:id="@+id/btn_rate"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:drawableStart="@drawable/ic_star_black_24dp"-->
+                    <!--android:text="@string/base_about_app_rate"/>-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/btn_share"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:drawableStart="@drawable/ic_share_black_24dp"-->
+                    <!--android:text="@string/base_about_app_share"/>-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/btn_support"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="4dp"-->
+                    <!--android:drawableStart="@drawable/ic_shop_black_24dp"-->
+                    <!--android:text="@string/base_about_app_support"/>-->
+
+            </LinearLayout>
+
+            <!-- Thanks  - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <LinearLayout
+                android:id="@+id/lay_thanks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--<ImageView style="@style/base_about_divider"/>-->
+                <!--<TextView style="@style/base_about_header" android:text="@string/base_about_app_thanks"/>-->
+                <TextView
+                    android:id="@+id/txt_thanks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+            </LinearLayout>
+
+            <!-- ChangeLog - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <LinearLayout
+                android:id="@+id/lay_changelog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--<ImageView style="@style/base_about_divider"/>-->
+                <!--<TextView style="@style/base_about_header" android:text="@string/base_about_app_changelog"/>-->
+                <TextView
+                    android:id="@+id/txt_changelog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
