@@ -52,16 +52,17 @@ dependencies {
 
     //android
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
-    implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:customtabs:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:support-annotations:${rootProject.ext.supportLibraryVersion}"
     implementation "android.arch.lifecycle:runtime:${architectureVersion}"
     implementation "android.arch.lifecycle:extensions:${architectureVersion}"
     annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
 
     //ui
-    implementation('com.mikepenz:materialdrawer:6.0.2@aar') { transitive = true }
+    implementation('com.mikepenz:materialdrawer:6.0.6@aar') { transitive = true }
     implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
 
     //dev

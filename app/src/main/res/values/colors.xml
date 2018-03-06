@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="app_primary">#607D8B</color>
+    <color name="app_primary_dark">#455A64</color>
+    <color name="app_primary_light">#CFD8DC</color>
+    <color name="app_accent">#FF4444</color>
+    <color name="app_primary_text">#212121</color>
+    <color name="app_secondary_text">#757575</color>
+    <color name="app_icons">#FFFFFF</color>
+    <color name="app_divider">#BDBDBD</color>
+
+    <color name="app_tabs_background">#ff607d8b</color>
+    <color name="app_tabs_normal">#99ffffff</color>
+    <color name="app_tabs_selected">#ffffffff</color>
+    <color name="app_tabs_indicator">#ffffffff</color>
+
 </resources>

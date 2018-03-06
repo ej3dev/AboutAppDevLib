@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="net.ej3.libs.aboutappdevlib.app"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.ej3.libs.aboutappdevlib.app">
 
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Permisos
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Application
+    -->
     <application
-        android:allowBackup="true"
+        android:name=".DemoApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        android:allowBackup="true">
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+        <!-- DemoAuthActivity  - - - - - - - - - - - - - - - - - - - - - - - -->
+        <activity
+            android:name=".DemoActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AboutAppDevLibTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

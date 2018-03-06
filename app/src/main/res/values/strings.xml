@@ -3,6 +3,10 @@
     <!-- AboutAppDevLib -->
     <string name="app_name">AboutAppDevLib Demo</string>
 
+    <!-- NavigationDrawer -->
+    <string name="drawer_profile_name">AboutAppDevLib</string>
+    <string name="drawer_profile_email">by E.J. Jiménez</string>
+
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         AboutFragment
     -->
