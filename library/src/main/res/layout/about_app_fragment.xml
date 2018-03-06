@@ -2,10 +2,24 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:lib="http://schemas.android.com/apk/res/android"
     tools:ignore="ContentDescription">
 
     <data>
-
+        <variable name="backgroundColor" type="int"/>
+        <variable name="primaryTextColor" type="int"/>
+        <variable name="secondaryTextColor" type="int"/>
+        <variable name="sectionTitleColor" type="int"/>
+        <variable name="sectionDividerColor" type="int"/>
+        <variable name="icon" type="int"/>
+        <variable name="name" type="CharSequence"/>
+        <variable name="version" type="CharSequence"/>
+        <variable name="copyright" type="CharSequence"/>
+        <variable name="thanksTitle" type="CharSequence"/>
+        <variable name="thanksText" type="CharSequence"/>
+        <variable name="changelogTitle" type="CharSequence"/>
+        <variable name="changelogText" type="CharSequence"/>
     </data>
 
     <ScrollView
@@ -15,39 +29,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:orientation="vertical">
+            android:paddingTop="8dp"
+            android:orientation="vertical"
+            android:background="@{backgroundColor}">
 
             <!-- App - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <ImageView
-                android:id="@+id/img_app_icon"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="16dp"/>
+                style="@style/about_image_square"
+                android:visibility="@{icon}"
+                lib:src="@{icon}"/>
 
             <TextView
-                android:id="@+id/txt_app_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.Material.Large"
-                android:textStyle="bold"/>
+                style="@style/about_text_name_autosize"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="22sp"
+                android:textColor="@{primaryTextColor}"
+                android:text="@{name}"
+                android:visibility="@{name}"/>
 
             <TextView
-                android:id="@+id/txt_app_version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
+                style="@style/about_text_medium"
+                android:textColor="@{secondaryTextColor}"
+                android:text="@{version}"
+                android:visibility="@{version}"/>
 
             <TextView
-                android:id="@+id/txt_app_copyright"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium"/>
-
+                style="@style/about_text_medium"
+                android:textColor="@{secondaryTextColor}"
+                android:text="@{copyright}"
+                android:visibility="@{copyright}"/>
 
             <!-- Acciones  - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <LinearLayout
@@ -85,34 +95,48 @@
 
             <!-- Thanks  - - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <LinearLayout
-                android:id="@+id/lay_thanks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!--<ImageView style="@style/base_about_divider"/>-->
-                <!--<TextView style="@style/base_about_header" android:text="@string/base_about_app_thanks"/>-->
+                android:orientation="vertical"
+                android:visibility="@{thanksText}">
+
+                <ImageView
+                    style="@style/about_section_divider"
+                    android:src="@{sectionDividerColor}"/>
+
                 <TextView
-                    android:id="@+id/txt_thanks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+                    style="@style/about_section_title"
+                    android:textColor="@{sectionTitleColor}"
+                    android:text="@{thanksTitle}"
+                    android:visibility="@{thanksTitle}"/>
+
+                <TextView
+                    style="@style/about_text_paragraph"
+                    android:text="@{thanksText}"/>
+
             </LinearLayout>
 
             <!-- ChangeLog - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <LinearLayout
-                android:id="@+id/lay_changelog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!--<ImageView style="@style/base_about_divider"/>-->
-                <!--<TextView style="@style/base_about_header" android:text="@string/base_about_app_changelog"/>-->
+                android:orientation="vertical"
+                android:visibility="@{changelogText}">
+
+                <ImageView
+                    style="@style/about_section_divider"
+                    android:src="@{sectionDividerColor}"/>
+
                 <TextView
-                    android:id="@+id/txt_changelog"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:textAppearance="@android:style/TextAppearance.Material.Small"/>
+                    style="@style/about_section_title"
+                    android:textColor="@{sectionTitleColor}"
+                    android:text="@{changelogTitle}"
+                    android:visibility="@{changelogTitle}"/>
+
+                <TextView
+                    style="@style/about_text_paragraph"
+                    android:text="@{changelogText}"/>
+
             </LinearLayout>
 
         </LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        About
+    -->
+    <style name="about_image_square">
+        <item name="android:layout_width">128dp</item>
+        <item name="android:layout_height">128dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="about_section_divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <style name="about_section_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+    </style>
+
+    <style name="about_text_paragraph">
+        <item name="android:layout_width">match_parent</item>"
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Small</item>
+    </style>
+
+    <style name="about_text_name_autosize">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="about_text_large">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Large</item>
+    </style>
+
+    <style name="about_text_medium" parent="about_text_large">
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Medium</item>
+    </style>
+
+    <style name="about_text_small" parent="about_text_large">
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Small</item>
+    </style>
+
+</resources>
