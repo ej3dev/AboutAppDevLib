@@ -18,6 +18,7 @@ import net.ej3.libs.aboutappdevlib.databinding.AboutAppFragmentBinding;
  * @author E.J. Jiménez
  * @version 20180305
  */
+@SuppressWarnings("unused")
 public class AboutAppFragment extends Fragment {
 
     //--------------------------------------------------------------------------
@@ -57,11 +58,11 @@ public class AboutAppFragment extends Fragment {
     //region Builder
     //
     public static final class Builder {
-        @ColorInt int mBackgroundColor = 0xffeceff1;
-        @ColorInt int mPrimaryTextColor = 0xdd000000;   //0xdd ~ 87%
-        @ColorInt int mSecondaryTextColor = 0x88000000; //0x88 ~ 54%
-        @ColorInt int mSectionTitleColor = 0xff546e7a;
-        @ColorInt int mSectionDividerColor = 0x22546e7a;//0x22 ~ 13%
+        @ColorInt int mBackgroundColor     = 0xffeceff1;
+        @ColorInt int mPrimaryTextColor    = 0xdd000000; //0xdd ~ 87%
+        @ColorInt int mSecondaryTextColor  = 0x88000000; //0x88 ~ 54%
+        @ColorInt int mSectionTitleColor   = 0xff546e7a;
+        @ColorInt int mSectionDividerColor = 0x22546e7a; //0x22 ~ 13%
 
         @DrawableRes int mIconRes = -1;
         @Nullable String mName;

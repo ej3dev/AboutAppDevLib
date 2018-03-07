@@ -21,6 +21,7 @@ import java.util.List;
  * @author E.J. Jiménez
  * @version 20180305
  */
+@SuppressWarnings("unused")
 public class AboutFragment extends Fragment {
 
     //--------------------------------------------------------------------------
