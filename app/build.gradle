@@ -57,9 +57,12 @@ dependencies {
     implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:support-annotations:${rootProject.ext.supportLibraryVersion}"
-    implementation "android.arch.lifecycle:runtime:${architectureVersion}"
-    implementation "android.arch.lifecycle:extensions:${architectureVersion}"
-    annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+    //implementation "android.arch.lifecycle:runtime:${architectureVersion}"
+    //implementation "android.arch.lifecycle:extensions:${architectureVersion}"
+    //annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+
+    //google
+    implementation 'com.google.android:flexbox:0.3.2'
 
     //ui
     implementation('com.mikepenz:materialdrawer:6.0.6@aar') { transitive = true }

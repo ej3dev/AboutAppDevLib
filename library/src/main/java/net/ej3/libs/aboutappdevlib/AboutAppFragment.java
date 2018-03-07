@@ -8,11 +8,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import net.ej3.libs.aboutappdevlib.databinding.AboutAppFragmentBinding;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author E.J. Jiménez
@@ -51,6 +58,7 @@ public class AboutAppFragment extends Fragment {
     //region Components
     //
     private AboutAppFragmentBinding binding;
+    private List<Button> actions;
     //endregion
 
 
@@ -72,6 +80,7 @@ public class AboutAppFragment extends Fragment {
         @Nullable String mThanksText;
         @Nullable String mChangelogTitle;
         @Nullable String mChangelogText;
+        List<Button> mActions = new ArrayList<>();
 
         public Builder() {
             //Empty
@@ -121,6 +130,11 @@ public class AboutAppFragment extends Fragment {
             return this;
         }
 
+        public Builder withActions(Button... actions) {
+            mActions.addAll(Arrays.asList(actions));
+            return this;
+        }
+
         public AboutAppFragment build() {
             AboutAppFragment aboutAppFragment = new AboutAppFragment();
             aboutAppFragment.backgroundColor = mBackgroundColor;
@@ -137,6 +151,7 @@ public class AboutAppFragment extends Fragment {
             aboutAppFragment.thanksText = mThanksText;
             aboutAppFragment.changelogTitle = mChangelogTitle;
             aboutAppFragment.changelogText = mChangelogText;
+            aboutAppFragment.actions = mActions;
 
             return aboutAppFragment;
         }
@@ -152,6 +167,7 @@ public class AboutAppFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.about_app_fragment,container,false);
         setData();
+        addActions();
         return binding.getRoot();
     }
     //endregion
@@ -175,6 +191,17 @@ public class AboutAppFragment extends Fragment {
         binding.setThanksText(Html.fromHtml(thanksText));
         binding.setChangelogTitle(Html.fromHtml(changelogTitle));
         binding.setChangelogText(Html.fromHtml(changelogText));
+    }
+
+    private void addActions() {
+        binding.layActions.setVisibility(actions.size() == 0 ? View.GONE : View.VISIBLE);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.topMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
+        layoutParams.bottomMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
+        layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
+        layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
+        binding.layActions.removeAllViews();
+        for(Button b : actions) binding.layActions.addView(b,layoutParams);
     }
     //endregion
 

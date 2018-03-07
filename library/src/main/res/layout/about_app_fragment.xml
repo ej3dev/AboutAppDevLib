@@ -59,39 +59,17 @@
                 android:text="@{copyright}"
                 android:visibility="@{copyright}"/>
 
-            <!-- Acciones  - - - - - - - - - - - - - - - - - - - - - - - - - -->
-            <LinearLayout
+            <!-- Actions - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/lay_actions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <!--<Button-->
-                    <!--android:id="@+id/btn_rate"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="4dp"-->
-                    <!--android:drawableStart="@drawable/ic_star_black_24dp"-->
-                    <!--android:text="@string/base_about_app_rate"/>-->
-
-                <!--<Button-->
-                    <!--android:id="@+id/btn_share"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="4dp"-->
-                    <!--android:drawableStart="@drawable/ic_share_black_24dp"-->
-                    <!--android:text="@string/base_about_app_share"/>-->
-
-                <!--<Button-->
-                    <!--android:id="@+id/btn_support"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_margin="4dp"-->
-                    <!--android:drawableStart="@drawable/ic_shop_black_24dp"-->
-                    <!--android:text="@string/base_about_app_support"/>-->
-
-            </LinearLayout>
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:flexDirection="row"
+                app:flexWrap="wrap"
+                app:justifyContent="center"/>
 
             <!-- Thanks  - - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <LinearLayout

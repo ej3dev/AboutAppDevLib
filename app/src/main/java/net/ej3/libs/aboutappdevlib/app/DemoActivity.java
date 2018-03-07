@@ -26,6 +26,7 @@ import net.ej3.libs.aboutappdevlib.AboutAppFragment;
 import net.ej3.libs.aboutappdevlib.AboutDevFragment;
 import net.ej3.libs.aboutappdevlib.AboutFragment;
 import net.ej3.libs.aboutappdevlib.AboutLibFragment;
+import net.ej3.libs.aboutappdevlib.util.ButtonFactory;
 
 /**
  * @author E.J. Jiménez
@@ -153,6 +154,16 @@ public class DemoActivity extends AppCompatActivity {
             .withCopyright(getString(R.string.about_app_copyright))
             .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
             .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
+            .withActions(
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openGithub(this,"ej3dev")
+            )
             .build();
 
         return new AboutFragment.Builder()

@@ -42,9 +42,12 @@ dependencies {
     implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:customtabs:${rootProject.ext.supportLibraryVersion}"
     implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
-    implementation "android.arch.lifecycle:runtime:${architectureVersion}"
-    implementation "android.arch.lifecycle:extensions:${architectureVersion}"
-    annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+    //implementation "android.arch.lifecycle:runtime:${architectureVersion}"
+    //implementation "android.arch.lifecycle:extensions:${architectureVersion}"
+    //annotationProcessor "android.arch.lifecycle:compiler:${architectureVersion}"
+
+    //google
+    implementation 'com.google.android:flexbox:0.3.2'
 
     //dev
     implementation 'com.orhanobut:logger:2.1.1'
