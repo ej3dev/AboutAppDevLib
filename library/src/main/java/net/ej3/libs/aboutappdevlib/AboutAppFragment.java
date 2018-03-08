@@ -12,7 +12,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import net.ej3.libs.aboutappdevlib.databinding.AboutAppFragmentBinding;
@@ -23,7 +22,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180305
+ * @version 20180308
  */
 @SuppressWarnings("unused")
 public class AboutAppFragment extends Fragment {
@@ -58,7 +57,7 @@ public class AboutAppFragment extends Fragment {
     //region Components
     //
     private AboutAppFragmentBinding binding;
-    private List<Button> actions;
+    private List<View> actions;
     //endregion
 
 
@@ -80,7 +79,7 @@ public class AboutAppFragment extends Fragment {
         @Nullable String mThanksText;
         @Nullable String mChangelogTitle;
         @Nullable String mChangelogText;
-        List<Button> mActions = new ArrayList<>();
+        List<View> mActions = new ArrayList<>();
 
         public Builder() {
             //Empty
@@ -130,7 +129,7 @@ public class AboutAppFragment extends Fragment {
             return this;
         }
 
-        public Builder withActions(Button... actions) {
+        public Builder withActions(View... actions) {
             mActions.addAll(Arrays.asList(actions));
             return this;
         }
@@ -201,7 +200,7 @@ public class AboutAppFragment extends Fragment {
         layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
         layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
         binding.layActions.removeAllViews();
-        for(Button b : actions) binding.layActions.addView(b,layoutParams);
+        for(View v : actions) binding.layActions.addView(v,layoutParams);
     }
     //endregion
 
