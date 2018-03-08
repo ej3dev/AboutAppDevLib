@@ -38,22 +38,27 @@ public class Dev {
     //--------------------------------------------------------------------------
     //region Getters
     //
+    @NonNull
     public String getName() {
         return name;
     }
 
+    @Nullable
     public String getJob() {
         return job;
     }
 
+    @Nullable
     public String getBio() {
         return bio;
     }
 
+    @DrawableRes
     public int getPhoto() {
         return photo;
     }
 
+    @Nullable
     public String getUrl() {
         return url;
     }

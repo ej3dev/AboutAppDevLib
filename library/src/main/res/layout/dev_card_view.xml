@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ContentDescription,RtlHardcoded">
+
+    <data>
+        <variable name="dev" type="net.ej3.libs.aboutappdevlib.model.Dev"/>
+        <variable name="primaryTextColor" type="int"/>
+        <variable name="secondaryTextColor" type="int"/>
+        <variable name="dividerColor" type="int"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                lib:src="@{dev.photo}"
+                android:visibility="@{dev.photo}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_icon"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+                    android:textColor="@{primaryTextColor}"
+                    android:text="@{dev.name}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small"
+                    android:textColor="@{secondaryTextColor}"
+                    android:text="@{dev.job}"
+                    android:visibility="@{dev.job}"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:src="@{dividerColor}"
+            android:visibility="@{dev.bio}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{dev.bio}"
+            android:textColor="@{secondaryTextColor}"
+            android:visibility="@{dev.bio}"/>
+
+    </LinearLayout>
+
+</layout>
