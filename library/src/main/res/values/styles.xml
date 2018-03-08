@@ -11,6 +11,14 @@
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
+    <style name="about_image_landscape">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">128dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
     <style name="about_section_divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -34,7 +42,7 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Material.Small</item>
     </style>
 
-    <style name="about_text_name_autosize">
+    <style name="about_text_autosize">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:layout_marginLeft">16dp</item>

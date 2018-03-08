@@ -30,7 +30,7 @@ import net.ej3.libs.aboutappdevlib.util.ButtonFactory;
 
 /**
  * @author E.J. Jiménez
- * @version 20180306
+ * @version 20180308
  */
 public class DemoActivity extends AppCompatActivity {
 
@@ -181,21 +181,27 @@ public class DemoActivity extends AppCompatActivity {
 
     private Fragment buildAboutFragment() {
         Fragment appFragment = new AboutAppFragment.Builder()
-                .withIcon(R.drawable.ic_launcher)
-                .withName(getString(R.string.about_app_name))
-                .withVersion(getString(R.string.about_app_version,BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE))
-                .withCopyright(getString(R.string.about_app_copyright))
-                .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
-                .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
-                .build();
+            .withIcon(R.drawable.ic_launcher)
+            .withName(getString(R.string.about_app_name))
+            .withVersion(getString(R.string.about_app_version,BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE))
+            .withCopyright(getString(R.string.about_app_copyright))
+            .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
+            .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
+            .build();
+
+        Fragment devFragment = new AboutDevFragment.Builder()
+            .withLogo(R.drawable.icon_dev)
+            .withAuthor("E.J. Jiménez")
+            .withInfo("Salamanca (Spain)")
+            .build();
 
         return new AboutFragment.Builder()
-                .withTabsMode(TabLayout.MODE_SCROLLABLE)
-                .withTabsBackgroundColor(ContextCompat.getColor(this,R.color.md_blue_grey_600))
-                .addPage("APP",appFragment)
-                .addPage("DEV",new AboutDevFragment.Builder().build())
-                .addPage("LIB",new AboutLibFragment.Builder().build())
-                .build();
+            .withTabsMode(TabLayout.MODE_SCROLLABLE)
+            .withTabsBackgroundColor(ContextCompat.getColor(this,R.color.md_blue_grey_600))
+            .addPage("APP",appFragment)
+            .addPage("DEV",devFragment)
+            .addPage("LIB",new AboutLibFragment.Builder().build())
+            .build();
     }
     //enedregion
 

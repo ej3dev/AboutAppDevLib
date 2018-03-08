@@ -22,9 +22,10 @@
         <variable name="changelogText" type="CharSequence"/>
     </data>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                 lib:src="@{icon}"/>
 
             <TextView
-                style="@style/about_text_name_autosize"
+                style="@style/about_text_autosize"
                 app:autoSizeTextType="uniform"
                 app:autoSizeMaxTextSize="22sp"
                 android:textColor="@{primaryTextColor}"
@@ -119,6 +120,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </layout>

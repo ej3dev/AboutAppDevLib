@@ -7,7 +7,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import net.ej3.libs.aboutappdevlib.databinding.AboutAppFragmentBinding;
+import net.ej3.libs.aboutappdevlib.util.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,6 +112,7 @@ public class AboutAppFragment extends Fragment {
             mVersion = version;
             return this;
         }
+
         public Builder withCopyright(@Nullable String copyright) {
             mCopyright = copyright;
             return this;
@@ -183,13 +184,13 @@ public class AboutAppFragment extends Fragment {
         binding.setSectionDividerColor(sectionDividerColor);
 
         binding.setIcon(iconRes);
-        binding.setName(Html.fromHtml(name));
-        binding.setVersion(Html.fromHtml(version));
-        binding.setCopyright(Html.fromHtml(copyright));
-        binding.setThanksTitle(Html.fromHtml(thanksTitle));
-        binding.setThanksText(Html.fromHtml(thanksText));
-        binding.setChangelogTitle(Html.fromHtml(changelogTitle));
-        binding.setChangelogText(Html.fromHtml(changelogText));
+        binding.setName(Util.toHtml(name));
+        binding.setVersion(Util.toHtml(version));
+        binding.setCopyright(Util.toHtml(copyright));
+        binding.setThanksTitle(Util.toHtml(thanksTitle));
+        binding.setThanksText(Util.toHtml(thanksText));
+        binding.setChangelogTitle(Util.toHtml(changelogTitle));
+        binding.setChangelogText(Util.toHtml(changelogText));
     }
 
     private void addActions() {

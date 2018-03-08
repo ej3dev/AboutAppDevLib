@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Patterns;
 
 /**
@@ -16,7 +18,7 @@ import android.util.Patterns;
 public class Util {
 
     //--------------------------------------------------------------------------
-    //region Checking utils
+    //region Checks
     //
     public static void tryPackage(final Context ctx,final String packageName) throws PackageManager.NameNotFoundException {
         ctx.getPackageManager().getPackageInfo(packageName,0);
@@ -33,7 +35,16 @@ public class Util {
 
 
     //--------------------------------------------------------------------------
-    //region Intent utils
+    //region Format
+    //
+    public static Spanned toHtml(String text) {
+        return Html.fromHtml(""+text);
+    }
+    //endregion
+
+
+    //--------------------------------------------------------------------------
+    //region Intents
     //
     @NonNull
     public static Intent newIntent(final Uri uri) {
@@ -53,7 +64,7 @@ public class Util {
 
 
     //--------------------------------------------------------------------------
-    //region Open app util
+    //region Open app
     //
     public static void open(final Context ctx,final Intent intent) {
         try {
