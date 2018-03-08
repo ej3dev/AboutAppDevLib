@@ -38,22 +38,27 @@ public class Lib {
     //--------------------------------------------------------------------------
     //region Getters
     //
+    @NonNull
     public String getName() {
         return name;
     }
 
+    @Nullable
     public String getAuthor() {
         return author;
     }
 
+    @Nullable
     public String getDescription() {
         return description;
     }
 
+    @DrawableRes
     public int getIcon() {
         return icon;
     }
 
+    @Nullable
     public String getUrl() {
         return url;
     }

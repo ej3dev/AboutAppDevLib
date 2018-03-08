@@ -14,7 +14,7 @@ public class App {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    protected String packageName;
+    protected String urlOrPackageName;
     protected String name;
     protected String description;
     @DrawableRes protected int icon;
@@ -24,8 +24,8 @@ public class App {
     //--------------------------------------------------------------------------
     //region Constructor
     //
-    public App(@Nullable String packageName,@NonNull String name,@Nullable String description,@DrawableRes int icon) {
-        this.packageName = packageName;
+    public App(@Nullable String urlOrPackageName,@NonNull String name,@Nullable String description,@DrawableRes int icon) {
+        this.urlOrPackageName = urlOrPackageName;
         this.name = name;
         this.description = description;
         this.icon = icon;
@@ -36,18 +36,22 @@ public class App {
     //--------------------------------------------------------------------------
     //region Getters
     //
-    public String getPackageName() {
-        return packageName;
+    @Nullable
+    public String getUrlOrPackageName() {
+        return urlOrPackageName;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
+    @Nullable
     public String getDescription() {
         return description;
     }
 
+    @DrawableRes
     public int getIcon() {
         return icon;
     }
