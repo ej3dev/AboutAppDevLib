@@ -29,11 +29,17 @@ import java.util.List;
  * @author E.J. Jiménez
  * @version 20180308
  */
+@SuppressWarnings({"unused","SameParameterValue"})
 public class AboutDevFragment extends Fragment {
 
     //--------------------------------------------------------------------------
     //region Constants
     //
+    @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
+    @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
+    @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
+    @ColorInt protected static final int DEFAULT_SECTION_TITLE_COLOR   = 0xff546e7a;
+    @ColorInt protected static final int DEFAULT_SECTION_DIVIDER_COLOR = 0x22546e7a; //0x22 ~ 13%
     //endregion
 
 
@@ -68,11 +74,11 @@ public class AboutDevFragment extends Fragment {
     //region Builder
     //
     public static final class Builder {
-        @ColorInt int mBackgroundColor     = 0xffeceff1;
-        @ColorInt int mPrimaryTextColor    = 0xdd000000; //0xdd ~ 87%
-        @ColorInt int mSecondaryTextColor  = 0x88000000; //0x88 ~ 54%
-        @ColorInt int mSectionTitleColor   = 0xff546e7a;
-        @ColorInt int mSectionDividerColor = 0x22546e7a; //0x22 ~ 13%
+        @ColorInt int mBackgroundColor     = DEFAULT_BACKGROUND_COLOR;
+        @ColorInt int mPrimaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
+        @ColorInt int mSecondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
+        @ColorInt int mSectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
+        @ColorInt int mSectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
 
         @DrawableRes int mLogoRes = -1;
         @Nullable String mAuthor;
@@ -168,6 +174,12 @@ public class AboutDevFragment extends Fragment {
         addApps(inflater.getContext());
         return binding.getRoot();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding.layActions.removeAllViews();
+    }
     //endregion
 
 
@@ -197,7 +209,6 @@ public class AboutDevFragment extends Fragment {
         layoutParams.bottomMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
         layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
         layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,getResources().getDisplayMetrics());
-        binding.layActions.removeAllViews();
         for(View v : actions) binding.layActions.addView(v,layoutParams);
     }
 

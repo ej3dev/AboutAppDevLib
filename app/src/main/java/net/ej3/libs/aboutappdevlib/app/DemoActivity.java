@@ -26,6 +26,9 @@ import net.ej3.libs.aboutappdevlib.AboutAppFragment;
 import net.ej3.libs.aboutappdevlib.AboutDevFragment;
 import net.ej3.libs.aboutappdevlib.AboutFragment;
 import net.ej3.libs.aboutappdevlib.AboutLibFragment;
+import net.ej3.libs.aboutappdevlib.model.App;
+import net.ej3.libs.aboutappdevlib.model.Dev;
+import net.ej3.libs.aboutappdevlib.model.Lib;
 import net.ej3.libs.aboutappdevlib.util.ButtonFactory;
 
 /**
@@ -187,12 +190,39 @@ public class DemoActivity extends AppCompatActivity {
             .withCopyright(getString(R.string.about_app_copyright))
             .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
             .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
+            .withActions(
+                ButtonFactory.openGithub(this,"ej3dev"),
+                ButtonFactory.openBitbucket(this,"ej3dev")
+            )
             .build();
 
         Fragment devFragment = new AboutDevFragment.Builder()
             .withLogo(R.drawable.icon_dev)
             .withAuthor("E.J. Jiménez")
             .withInfo("Salamanca (Spain)")
+            .withActions(
+                ButtonFactory.openPlayStoreDev(this,"5497160455081780210")
+            )
+            .withDevs("Developers",
+                new Dev("Emilio José Jiménez","Programmer",null,R.drawable.icon_dev,null),
+                new Dev("Ada Lovelace","Programmer",null,0,"https://en.wikipedia.org/wiki/Ada_Lovelace"),
+                new Dev("Sid Meier","Programmer","For his contributions to the video game industry, Meier was inducted into the Academy of Interactive Arts and Sciences Hall of Fame.",R.drawable.icon_dev,null)
+            )
+            .withApps("Other apps",
+                new App("net.ej3.nightalarmclock","Night Alarm Clock","The ultimate alarm clock for your nightstand",R.drawable.icon_app_nac),
+                new App("net.ej3.advancedpokerstats","Poker Stats &amp; Odds Calculator","The definitive app for calculating poker stats &amp; odds",0),
+                new App("net.ej3.games.squared","Squared: Sliding Blocks Puzzle","The evolution of the classic sliding blocks puzzle game",R.drawable.icon_app_sqr)
+            )
+            .build();
+
+        Fragment libFragment = new AboutLibFragment.Builder()
+            .withInfo("<b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+            .withLibs("Third party libs",
+                new Lib("AboutAppDevLib","E.J. Jiménez","<b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",R.drawable.icon_dev,"http://www.google.com"),
+                new Lib("Logger","Orhan Obut","Simple, pretty and powerful logger for android",0,"https://github.com/orhanobut/logger"),
+                new Lib("LeakCanary","Square","A memory leak detection library for Android and Java",R.drawable.leak_canary_icon,"https://github.com/square/leakcanary"),
+                new Lib("LeakCanary","Square",null,R.drawable.leak_canary_icon,"https://github.com/square/leakcanary")
+            )
             .build();
 
         return new AboutFragment.Builder()
@@ -200,7 +230,7 @@ public class DemoActivity extends AppCompatActivity {
             .withTabsBackgroundColor(ContextCompat.getColor(this,R.color.md_blue_grey_600))
             .addPage("APP",appFragment)
             .addPage("DEV",devFragment)
-            .addPage("LIB",new AboutLibFragment.Builder().build())
+            .addPage("LIB",libFragment)
             .build();
     }
     //enedregion

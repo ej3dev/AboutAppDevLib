@@ -4,48 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ContentDescription">
 
-    <data></data>
+    <data>
+        <variable name="backgroundColor" type="int"/>
+        <variable name="primaryTextColor" type="int"/>
+        <variable name="secondaryTextColor" type="int"/>
+        <variable name="sectionTitleColor" type="int"/>
+        <variable name="sectionDividerColor" type="int"/>
+        <variable name="info" type="CharSequence"/>
+        <variable name="libsTitle" type="CharSequence"/>
+        <variable name="libsVisible" type="boolean"/>
+    </data>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:orientation="vertical">
+            android:paddingTop="8dp"
+            android:orientation="vertical"
+            android:background="@{backgroundColor}">
 
-            <!--<TextView-->
-                <!--android:id="@+id/txt_info"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="8dp"-->
-                <!--android:paddingBottom="8dp"-->
-                <!--android:paddingLeft="16dp"-->
-                <!--android:paddingRight="16dp"-->
-                <!--android:textAppearance="@android:style/TextAppearance.Material.Small"-->
-                <!--android:text="@string/base_about_lib_info"/>-->
+            <!-- Info  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <TextView
+                style="@style/about_text_small"
+                android:layout_marginTop="8dp"
+                android:textColor="@{secondaryTextColor}"
+                android:text="@{info}"
+                android:visibility="@{info}"/>
 
             <!-- Libs  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <LinearLayout
-                android:id="@+id/lay_libs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!--<ImageView style="@style/base_about_divider"/>-->
-                <!--<TextView style="@style/base_about_header" android:text="@string/base_about_lib_libraries"/>-->
+                android:orientation="vertical"
+                android:visibility="@{libsVisible}">
+
+                <ImageView
+                    style="@style/about_section_divider"
+                    android:src="@{sectionDividerColor}"/>
+
+                <TextView
+                    style="@style/about_section_title"
+                    android:textColor="@{sectionTitleColor}"
+                    android:text="@{libsTitle}"
+                    android:visibility="@{libsTitle}"/>
+
                 <LinearLayout
-                    android:id="@+id/lay_libs_list"
+                    android:id="@+id/lay_libs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:orientation="vertical"/>
+
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </layout>
