@@ -2,7 +2,7 @@ package net.ej3.libs.aboutappdevlib;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180309
  */
 @SuppressWarnings("unused")
 public class K {
@@ -11,6 +11,8 @@ public class K {
     //region Constants
     //
     public static final String CALL_PHONE_URI          = "tel:%s";
+    public static final String GEO_APP_URI             = "geo:0,0?q=%f,%f(%s)&z=%d";
+    public static final String GEO_WEB_URL             = "https://www.google.com/maps/@%f,%f,%dz";
 
     public static final String GITHUB_WEB_URL          = "https://github.com/%s";
 

@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">AboutAppDevLib</string>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        AboutAppDevLib
+    -->
+    <string name="lib_name">AboutAppDevLib</string>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        ButtonFactory
+    -->
+    <string name="btn_call">Call</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_rate">Rate</string>
+    <string name="btn_email">Email</string>
+    <string name="btn_feedback">Feedback</string>
+    <string name="btn_address">Address</string>
+    <string name="btn_contact">Contact</string>
+    <string name="btn_github">GitHub</string>
+    <string name="btn_bitbucket">Bitbucket</string>
+    <string name="btn_instagram">Instagram</string>
+    <string name="btn_facebook">Facebook</string>
+    <string name="btn_twitter">Twitter</string>
+    <string name="btn_google_plus">Google Plus</string>
+    <string name="btn_linkedin">LinkedIn</string>
+    <string name="btn_skype">Skype</string>
+    <string name="btn_youtube">YouTube</string>
+    <string name="btn_play_store">Play Store</string>
+
 </resources>
