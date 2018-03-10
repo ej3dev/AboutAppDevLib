@@ -2,12 +2,16 @@ package net.ej3.libs.aboutappdevlib;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +31,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180310
  */
 @SuppressWarnings({"unused","SameParameterValue"})
 public class AboutDevFragment extends Fragment {
@@ -46,13 +50,13 @@ public class AboutDevFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    @ColorInt private int backgroundColor;
+    @ColorInt private int background;
     @ColorInt private int primaryTextColor;
     @ColorInt private int secondaryTextColor;
     @ColorInt private int sectionTitleColor;
     @ColorInt private int sectionDividerColor;
 
-    @DrawableRes private int logoRes;
+    @Nullable private Drawable logo;
     @Nullable private String author;
     @Nullable private String info;
     @Nullable private String devsTitle;
@@ -74,13 +78,14 @@ public class AboutDevFragment extends Fragment {
     //region Builder
     //
     public static final class Builder {
-        @ColorInt int mBackgroundColor     = DEFAULT_BACKGROUND_COLOR;
+        Context ctx;
+        @ColorInt int mBackground          = DEFAULT_BACKGROUND_COLOR;
         @ColorInt int mPrimaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
         @ColorInt int mSecondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
         @ColorInt int mSectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
         @ColorInt int mSectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
 
-        @DrawableRes int mLogoRes = -1;
+        @Nullable Drawable mLogo;
         @Nullable String mAuthor;
         @Nullable String mInfo;
         @Nullable String mDevsTitle;
@@ -89,12 +94,17 @@ public class AboutDevFragment extends Fragment {
         List<Dev> mDevs = new ArrayList<>();
         List<App> mApps = new ArrayList<>();
 
-        public Builder() {
-            //Empty
+        public Builder(@NonNull final Context ctx) {
+            this.ctx = ctx;
         }
 
         public Builder withBackgroundColor(@ColorInt int backgroundColor) {
-            mBackgroundColor = backgroundColor;
+            mBackground = backgroundColor;
+            return this;
+        }
+
+        public Builder withBackgroundResource(@ColorRes @DrawableRes int backgroundRes) {
+            mBackground = backgroundRes;
             return this;
         }
 
@@ -106,8 +116,21 @@ public class AboutDevFragment extends Fragment {
             return this;
         }
 
+        public Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
+            mPrimaryTextColor = ContextCompat.getColor(ctx,primaryColor);
+            mSecondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
+            mSectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
+            mSectionDividerColor = (0x22000000 | (mSectionTitleColor & 0xffffff));
+            return this;
+        }
+
+        public Builder withLogo(@Nullable Drawable logo) {
+            mLogo = logo;
+            return this;
+        }
+
         public Builder withLogo(@DrawableRes int logoRes) {
-            mLogoRes = logoRes;
+            mLogo = ctx.getDrawable(logoRes);
             return this;
         }
 
@@ -116,8 +139,18 @@ public class AboutDevFragment extends Fragment {
             return this;
         }
 
+        public Builder withAuthor(@StringRes int authorRes) {
+            mAuthor = ctx.getString(authorRes);
+            return this;
+        }
+
         public Builder withInfo(@Nullable String info) {
             mInfo = info;
+            return this;
+        }
+
+        public Builder withInfo(@StringRes int infoRes) {
+            mInfo = ctx.getString(infoRes);
             return this;
         }
 
@@ -132,21 +165,33 @@ public class AboutDevFragment extends Fragment {
             return this;
         }
 
+        public Builder withDevs(@StringRes int titleRes,Dev... devs) {
+            mDevsTitle = ctx.getString(titleRes);
+            mDevs.addAll(Arrays.asList(devs));
+            return this;
+        }
+
         public Builder withApps(@Nullable String title,App... apps) {
             mAppsTitle = title;
             mApps.addAll(Arrays.asList(apps));
             return this;
         }
 
+        public Builder withApps(@StringRes int titleRes,App... apps) {
+            mAppsTitle = ctx.getString(titleRes);
+            mApps.addAll(Arrays.asList(apps));
+            return this;
+        }
+
         public AboutDevFragment build() {
             AboutDevFragment aboutDevFragment = new AboutDevFragment();
-            aboutDevFragment.backgroundColor = mBackgroundColor;
+            aboutDevFragment.background = mBackground;
             aboutDevFragment.primaryTextColor = mPrimaryTextColor;
             aboutDevFragment.secondaryTextColor = mSecondaryTextColor;
             aboutDevFragment.sectionTitleColor = mSectionTitleColor;
             aboutDevFragment.sectionDividerColor = mSectionDividerColor;
 
-            aboutDevFragment.logoRes = mLogoRes;
+            aboutDevFragment.logo = mLogo;
             aboutDevFragment.author = mAuthor;
             aboutDevFragment.info = mInfo;
             aboutDevFragment.devsTitle = mDevsTitle;
@@ -187,13 +232,13 @@ public class AboutDevFragment extends Fragment {
     //region Utils
     //
     private void setData() {
-        binding.setBackgroundColor(backgroundColor);
+        binding.setBackground(background);
         binding.setPrimaryTextColor(primaryTextColor);
         binding.setSecondaryTextColor(secondaryTextColor);
         binding.setSectionTitleColor(sectionTitleColor);
         binding.setSectionDividerColor(sectionDividerColor);
 
-        binding.setLogo(logoRes);
+        binding.setLogo(logo);
         binding.setAuthor(Util.toHtml(author));
         binding.setInfo(Util.toHtml(info));
         binding.setDevsVisible(devs.size() > 0);

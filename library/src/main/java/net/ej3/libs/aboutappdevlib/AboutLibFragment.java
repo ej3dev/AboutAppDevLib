@@ -4,9 +4,13 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +28,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180310
  */
 @SuppressWarnings({"unused","SameParameterValue"})
 public class AboutLibFragment extends Fragment {
@@ -43,7 +47,7 @@ public class AboutLibFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    @ColorInt private int backgroundColor;
+    @ColorInt private int background;
     @ColorInt private int primaryTextColor;
     @ColorInt private int secondaryTextColor;
     @ColorInt private int sectionTitleColor;
@@ -66,7 +70,8 @@ public class AboutLibFragment extends Fragment {
     //region Builder
     //
     public static final class Builder {
-        @ColorInt int mBackgroundColor     = DEFAULT_BACKGROUND_COLOR;
+        Context ctx;
+        @ColorInt int mBackground          = DEFAULT_BACKGROUND_COLOR;
         @ColorInt int mPrimaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
         @ColorInt int mSecondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
         @ColorInt int mSectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
@@ -76,12 +81,17 @@ public class AboutLibFragment extends Fragment {
         @Nullable String mLibsTitle;
         List<Lib> mLibs = new ArrayList<>();
 
-        public Builder() {
-            //Empty
+        public Builder(@NonNull final Context ctx) {
+            this.ctx = ctx;
         }
 
         public Builder withBackgroundColor(@ColorInt int backgroundColor) {
-            mBackgroundColor = backgroundColor;
+            mBackground = backgroundColor;
+            return this;
+        }
+
+        public Builder withBackgroundResource(@ColorRes @DrawableRes int backgroundRes) {
+            mBackground = backgroundRes;
             return this;
         }
 
@@ -93,8 +103,21 @@ public class AboutLibFragment extends Fragment {
             return this;
         }
 
+        public Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
+            mPrimaryTextColor = ContextCompat.getColor(ctx,primaryColor);
+            mSecondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
+            mSectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
+            mSectionDividerColor = (0x22000000 | (mSectionTitleColor & 0xffffff));
+            return this;
+        }
+
         public Builder withInfo(@Nullable String info) {
             mInfo = info;
+            return this;
+        }
+
+        public Builder withInfo(@StringRes int infoRes) {
+            mInfo = ctx.getString(infoRes);
             return this;
         }
 
@@ -104,9 +127,15 @@ public class AboutLibFragment extends Fragment {
             return this;
         }
 
+        public Builder withLibs(@StringRes int titleRes,Lib... libs) {
+            mLibsTitle = ctx.getString(titleRes);
+            mLibs.addAll(Arrays.asList(libs));
+            return this;
+        }
+
         public AboutLibFragment build() {
             AboutLibFragment aboutLibFragment = new AboutLibFragment();
-            aboutLibFragment.backgroundColor = mBackgroundColor;
+            aboutLibFragment.background = mBackground;
             aboutLibFragment.primaryTextColor = mPrimaryTextColor;
             aboutLibFragment.secondaryTextColor = mSecondaryTextColor;
             aboutLibFragment.sectionTitleColor = mSectionTitleColor;
@@ -140,7 +169,7 @@ public class AboutLibFragment extends Fragment {
     //region Utils
     //
     private void setData() {
-        binding.setBackgroundColor(backgroundColor);
+        binding.setBackground(background);
         binding.setPrimaryTextColor(primaryTextColor);
         binding.setSecondaryTextColor(secondaryTextColor);
         binding.setSectionTitleColor(sectionTitleColor);

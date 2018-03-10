@@ -7,12 +7,12 @@
     tools:ignore="ContentDescription">
 
     <data>
-        <variable name="backgroundColor" type="int"/>
+        <variable name="background" type="int"/>
         <variable name="primaryTextColor" type="int"/>
         <variable name="secondaryTextColor" type="int"/>
         <variable name="sectionTitleColor" type="int"/>
         <variable name="sectionDividerColor" type="int"/>
-        <variable name="logo" type="int"/>
+        <variable name="logo" type="android.graphics.drawable.Drawable"/>
         <variable name="author" type="CharSequence"/>
         <variable name="info" type="CharSequence"/>
         <variable name="devsTitle" type="CharSequence"/>
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:orientation="vertical"
-            android:background="@{backgroundColor}">
+            android:background="@{background}">
 
             <!-- Dev - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
             <ImageView
