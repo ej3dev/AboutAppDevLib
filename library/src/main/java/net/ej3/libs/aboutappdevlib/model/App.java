@@ -1,12 +1,12 @@
 package net.ej3.libs.aboutappdevlib.model;
 
-import android.support.annotation.DrawableRes;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180310
  */
 @SuppressWarnings({"unused","WeakerAccess"})
 public class App {
@@ -17,14 +17,14 @@ public class App {
     protected String urlOrPackageName;
     protected String name;
     protected String description;
-    @DrawableRes protected int icon;
+    protected Drawable icon;
     //endregion
 
 
     //--------------------------------------------------------------------------
     //region Constructor
     //
-    public App(@Nullable String urlOrPackageName,@NonNull String name,@Nullable String description,@DrawableRes int icon) {
+    public App(@Nullable String urlOrPackageName,@NonNull String name,@Nullable String description,@Nullable final Drawable icon) {
         this.urlOrPackageName = urlOrPackageName;
         this.name = name;
         this.description = description;
@@ -51,8 +51,8 @@ public class App {
         return description;
     }
 
-    @DrawableRes
-    public int getIcon() {
+    @Nullable
+    public Drawable getIcon() {
         return icon;
     }
     //endregion

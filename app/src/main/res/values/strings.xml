@@ -1,9 +1,14 @@
 <resources>
 
-    <!-- AboutAppDevLib -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        DemoActivity
+    -->
     <string name="app_name">AboutAppDevLib Demo</string>
 
-    <!-- NavigationDrawer -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        NavigationDrawer
+    -->
     <string name="drawer_profile_name">AboutAppDevLib</string>
     <string name="drawer_profile_email">by E.J. Jiménez</string>
 
@@ -13,33 +18,40 @@
     <string name="about_privacy_url">http://ej3.000webhostapp.com/privacy/</string>
 
     <!-- App -->
-    <string name="about_app_name">Reminder Alarm</string>
+    <string name="about_app_tab">App</string>
+    <string name="about_app_name">AboutAppDevLib Demo</string>
     <string name="about_app_version">&lt;b>v%1$s&lt;/b> - %2$d</string>
     <string name="about_app_copyright">©2018 E.J. Jiménez</string>
-    <string name="about_app_share_subject">Try Reminder Alarm</string>
-    <string name="about_app_share_message">Please, take a look to Reminder Alarm:\n%s</string>
+    <string name="about_app_share_subject">Try AboutAppDevLib Demo</string>
+    <string name="about_app_share_message">Please, take a look to AboutAppDevLib Demo:\n%s</string>
     <string name="about_app_thanks_title">Thanks</string>
     <string name="about_app_thanks_text">
-    	Thanks to the people who send me their ideas and comments to improve this app. And &lt;b>thanks to you&lt;/b> for use this library.
+    	Thanks to the people who send me their ideas and comments to improve this lib.
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v1.0.0:&lt;/big> Tu.1-Mar-2018&lt;/b>
+		&lt;b>&lt;big>v0.1.5:&lt;/big> Mo.1-Mar-2018&lt;/b>
 		&lt;br/>* First public release
         &lt;br/>
-		&lt;br/>&lt;b>&lt;big>v0.5.0:&lt;/big> Mo.23-Apr-2018&lt;/b>
+		&lt;br/>&lt;b>&lt;big>v0.1.4:&lt;/big> Su.11-Mar-2018&lt;/b>
 		&lt;br/>* First beta release
         &lt;br/>
-		&lt;br/>&lt;b>&lt;big>v0.1.0:&lt;/big> Th.8-Mar-2018&lt;/b>
+		&lt;br/>&lt;b>&lt;big>v0.1.3:&lt;/big> Sa.10-Mar-2018&lt;/b>
 		&lt;br/>* First alpha release
     </string>
 
     <!-- Dev -->
+    <string name="about_dev_tab">Dev</string>
     <string name="about_dev_author">Emilio José Jiménez Jiménez</string>
     <string name="about_dev_city">Salamanca, Spain</string>
     <string name="about_dev_web">https://github.com/ej3dev</string>
     <string name="about_dev_github">ej3dev</string>
     <string name="about_dev_store">5497160455081780210</string>
+    <string name="about_dev_other_apps">Other apps</string>
+
+    <string name="about_dev_rea_package">net.ej3.apps.reminderalarm</string>
+    <string name="about_dev_rea_name">Reminder Alarm</string>
+    <string name="about_dev_rea_description">An advanced alarm app with cloud sync between your devices</string>
 
     <string name="about_dev_nac_package">net.ej3.nightalarmclock</string>
     <string name="about_dev_nac_name">Night Alarm Clock</string>
@@ -52,5 +64,30 @@
     <string name="about_dev_sqr_package">net.ej3.games.squared</string>
     <string name="about_dev_sqr_name">Squared: Sliding Blocks Puzzle</string>
     <string name="about_dev_sqr_description">The evolution of the classic sliding blocks puzzle game</string>
+
+    <!-- Lib -->
+    <string name="about_lib_tab">Lib</string>
+    <string name="about_lib_info">This app uses the following third-party libraries. <b>Thanks to its developers for their great work.</b></string>
+    <string name="about_lib_libraries">Libraries</string>
+
+    <string name="about_lib_aboutappdevlib_name">AboutAppDevLib</string>
+    <string name="about_lib_aboutappdevlib_author">E.J. Jiménez</string>
+    <string name="about_lib_aboutappdevlib_description">An easy to use library to build About screens for your apps</string>
+    <string name="about_lib_aboutappdevlib_url">https://github.com/ej3dev</string>
+
+    <string name="about_lib_material_drawer_name">MaterialDrawer</string>
+    <string name="about_lib_material_drawer_author">Mike Penz</string>
+    <string name="about_lib_material_drawer_description">The flexible, easy to use, all in one drawer library for your Android project</string>
+    <string name="about_lib_material_drawer_url">https://github.com/mikepenz/MaterialDrawer</string>
+
+    <string name="about_lib_logger_name">Logger</string>
+    <string name="about_lib_logger_author">Orhan Obut</string>
+    <string name="about_lib_logger_description">Simple, pretty and powerful logger for android</string>
+    <string name="about_lib_logger_url">https://github.com/orhanobut/logger</string>
+
+    <string name="about_lib_leak_canary_name">LeakCanary</string>
+    <string name="about_lib_leak_canary_author">Square</string>
+    <string name="about_lib_leak_canary_description">A memory leak detection library for Android and Java</string>
+    <string name="about_lib_leak_canary_url">https://github.com/square/leakcanary</string>
 
 </resources>

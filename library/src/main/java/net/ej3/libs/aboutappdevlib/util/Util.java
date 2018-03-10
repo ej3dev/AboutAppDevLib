@@ -12,7 +12,7 @@ import android.util.Patterns;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180310
  */
 @SuppressWarnings({"unused","WeakerAccess"})
 public class Util {
@@ -29,7 +29,7 @@ public class Util {
     }
 
     public static boolean isUrl(@Nullable final String url) {
-        return ( url != null && Patterns.WEB_URL.matcher(url).matches() );
+        return ( url != null && url.toLowerCase().startsWith("http") && Patterns.WEB_URL.matcher(url).matches() );
     }
     //endregion
 

@@ -1,6 +1,7 @@
 package net.ej3.libs.aboutappdevlib.util;
 
 import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,7 +10,7 @@ import android.widget.ImageView;
 
 /**
  * @author E.J. Jiménez
- * @version 20180305
+ * @version 20180310
  */
 @SuppressWarnings("unused")
 public class AboutBindingAdapters {
@@ -40,12 +41,23 @@ public class AboutBindingAdapters {
         int visibility = (resource <= 0 ? View.GONE : View.VISIBLE);
         view.setVisibility(visibility);
     }
+
+    @BindingAdapter("android:visibility")
+    public static void setVisibility(@NonNull View view,@Nullable Drawable drawable) {
+        int visibility = (drawable == null ? View.GONE : View.VISIBLE);
+        view.setVisibility(visibility);
+    }
     //endregion
 
 
     //--------------------------------------------------------------------------
     //region ImageView
     //
+    @BindingAdapter("lib:src")
+    public static void setImageResource(ImageView imageView,Drawable drawable){
+        if( drawable != null ) imageView.setImageDrawable(drawable);
+    }
+
     @BindingAdapter("lib:src")
     public static void setImageResource(ImageView imageView,@DrawableRes int resource){
         if( resource > 0 ) imageView.setImageResource(resource);

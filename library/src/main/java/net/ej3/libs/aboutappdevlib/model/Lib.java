@@ -1,12 +1,12 @@
 package net.ej3.libs.aboutappdevlib.model;
 
-import android.support.annotation.DrawableRes;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180310
  */
 @SuppressWarnings({"unused","WeakerAccess"})
 public class Lib {
@@ -17,7 +17,7 @@ public class Lib {
     protected String name;
     protected String author;
     protected String description;
-    @DrawableRes protected int icon;
+    protected Drawable icon;
     protected String url;
     //endregion
 
@@ -25,7 +25,7 @@ public class Lib {
     //--------------------------------------------------------------------------
     //region Constructor
     //
-    public Lib(@NonNull String name,@Nullable String author,@Nullable String description,@DrawableRes int icon,@Nullable String url) {
+    public Lib(@NonNull String name,@Nullable String author,@Nullable String description,@Nullable Drawable icon,@Nullable String url) {
         this.name = name;
         this.author = author;
         this.description = description;
@@ -53,8 +53,8 @@ public class Lib {
         return description;
     }
 
-    @DrawableRes
-    public int getIcon() {
+    @Nullable
+    public Drawable getIcon() {
         return icon;
     }
 
