@@ -20,14 +20,15 @@
             android:id="@+id/img_icon"
             android:layout_width="36dp"
             android:layout_height="36dp"
+            android:layout_marginRight="8dp"
             lib:src="@{app.icon}"
             android:visibility="@{app.icon}"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/img_icon"
+            android:layout_alignWithParentIfMissing="true"
             android:layout_centerVertical="true"
             android:orientation="vertical">
 

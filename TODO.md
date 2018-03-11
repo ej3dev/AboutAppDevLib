@@ -2,6 +2,9 @@
 # AboutAppDevLib TODO
 #
 
+### Su.11-Mar-2018
+- [ ] Add methods with resource ID parameters in ButtonFactory
+
 ### Sa.10-Mar-2018
 - [ ] Add constructor (ctx,json) to AppBuilder, DevBuilder and LibBuilder classes
 

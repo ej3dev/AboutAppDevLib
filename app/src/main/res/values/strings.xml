@@ -43,7 +43,7 @@
     <!-- Dev -->
     <string name="about_dev_tab">Dev</string>
     <string name="about_dev_author">Emilio José Jiménez Jiménez</string>
-    <string name="about_dev_city">Salamanca, Spain</string>
+    <string name="about_dev_info">Salamanca, Spain</string>
     <string name="about_dev_web">https://github.com/ej3dev</string>
     <string name="about_dev_github">ej3dev</string>
     <string name="about_dev_store">5497160455081780210</string>
