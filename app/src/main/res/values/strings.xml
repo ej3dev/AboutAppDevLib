@@ -67,7 +67,7 @@
 
     <!-- Lib -->
     <string name="about_lib_tab">Lib</string>
-    <string name="about_lib_info">This app uses the following third-party libraries. <b>Thanks to its developers for their great work.</b></string>
+    <string name="about_lib_info">This app uses the following third-party libraries. &lt;b>Thanks to its developers for their great work.&lt;/b></string>
     <string name="about_lib_libraries">Libraries</string>
 
     <string name="about_lib_aboutappdevlib_name">AboutAppDevLib</string>

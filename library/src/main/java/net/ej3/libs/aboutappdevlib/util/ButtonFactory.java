@@ -46,8 +46,8 @@ public class ButtonFactory {
     }
 
     @NonNull
-    public static Button customButton(@NonNull final Context ctx,@DrawableRes final int icon,@StringRes final int label,final View.OnClickListener onClick) {
-        return customButton(ctx,icon,ctx.getString(label),onClick);
+    public static Button customButton(@NonNull final Context ctx,@DrawableRes final int iconRes,@StringRes final int labelRes,final View.OnClickListener onClick) {
+        return customButton(ctx,iconRes,ctx.getString(labelRes),onClick);
     }
     //endregion
 
@@ -66,6 +66,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openUrl(@NonNull final Context ctx,@StringRes final int labelRes,@StringRes final int urlRes) {
+        return openUrl(ctx,ctx.getString(labelRes),ctx.getString(urlRes));
+    }
+
+    @NonNull
     public static Button openAddContact(@NonNull final Context ctx,@NonNull final String name,@NonNull final String phone) {
         return customButton(ctx,R.drawable.ic_contacts_black_24dp,R.string.btn_contact,new View.OnClickListener() {
             @Override
@@ -77,6 +82,11 @@ public class ButtonFactory {
                 Util.open(ctx,intent);
             }
         });
+    }
+
+    @NonNull
+    public static Button openAddContact(@NonNull final Context ctx,@StringRes final int nameRes,@StringRes final int phoneRes) {
+        return openAddContact(ctx,ctx.getString(nameRes),ctx.getString(phoneRes));
     }
 
     @NonNull
@@ -95,6 +105,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button sendEmail(@NonNull final Context ctx,@StringRes final int emailRes,@StringRes final int subjectRes,@StringRes final int messageRes) {
+        return sendEmail(ctx,ctx.getString(emailRes),ctx.getString(subjectRes),ctx.getString(messageRes));
+    }
+
+    @NonNull
     public static Button shareThisApp(@NonNull final Context ctx,@NonNull final String subject,@NonNull final String message) {
         return customButton(ctx,R.drawable.ic_share_black_24dp,R.string.btn_share,new View.OnClickListener() {
             @Override
@@ -106,6 +121,11 @@ public class ButtonFactory {
                 Util.open(ctx,intent);
             }
         });
+    }
+
+    @NonNull
+    public static Button shareThisApp(@NonNull final Context ctx,@StringRes final int subjectRes,@StringRes final int messageRes) {
+        return shareThisApp(ctx,ctx.getString(subjectRes),ctx.getString(messageRes));
     }
 
     @NonNull
@@ -124,6 +144,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button callPhone(@NonNull final Context ctx,@StringRes final int phoneRes) {
+        return callPhone(ctx,ctx.getString(phoneRes));
+    }
+
+    @NonNull
     public static Button openMap(@NonNull final Context ctx,@Nullable final String place,final double latitude,final double longitude,final int zoom) {
         return customButton(ctx,R.drawable.ic_map_black_24dp,R.string.btn_address,new View.OnClickListener() {
             @SuppressLint("DefaultLocale")
@@ -138,6 +163,11 @@ public class ButtonFactory {
                 }
             }
         });
+    }
+
+    @NonNull
+    public static Button openMap(@NonNull final Context ctx,@StringRes final int placeRes,final double latitude,final double longitude,final int zoom) {
+        return openMap(ctx,ctx.getString(placeRes),latitude,longitude,zoom);
     }
     //endregion
 
@@ -156,6 +186,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openGithub(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openGithub(ctx,ctx.getString(userRes));
+    }
+
+    @NonNull
     public static Button openBitbucket(@NonNull final Context ctx,@NonNull final String user) {
         return customButton(ctx,R.drawable.ic_bitbucket_black,R.string.btn_bitbucket,new View.OnClickListener() {
             @Override
@@ -163,6 +198,11 @@ public class ButtonFactory {
                 Util.open(ctx,Util.newIntent(K.BITBUCKET_WEB_URL,user));
             }
         });
+    }
+
+    @NonNull
+    public static Button openBitbucket(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openBitbucket(ctx,ctx.getString(userRes));
     }
     //endregion
 
@@ -188,6 +228,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openInstagram(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openInstagram(ctx,ctx.getString(userRes));
+    }
+
+    @NonNull
     public static Button openFacebook(@NonNull final Context ctx,@NonNull final String user) {
         return customButton(ctx,R.drawable.ic_facebook_black,R.string.btn_facebook,new View.OnClickListener() {
             @Override
@@ -202,6 +247,11 @@ public class ButtonFactory {
                 Util.open(ctx,intent);
             }
         });
+    }
+
+    @NonNull
+    public static Button openFacebook(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openFacebook(ctx,ctx.getString(userRes));
     }
 
     @NonNull
@@ -222,6 +272,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openTwitter(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openTwitter(ctx,ctx.getString(userRes));
+    }
+
+    @NonNull
     public static Button openGooglePlus(@NonNull final Context ctx,@NonNull final String user) {
         return customButton(ctx,R.drawable.ic_google_plus_black,R.string.btn_google_plus,new View.OnClickListener() {
             @Override
@@ -239,6 +294,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openGooglePlus(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openGooglePlus(ctx,ctx.getString(userRes));
+    }
+
+    @NonNull
     public static Button openYoutubeChannel(@NonNull final Context ctx,@NonNull final String channel) {
         return customButton(ctx,R.drawable.ic_youtube_black,R.string.btn_youtube,new View.OnClickListener() {
             @Override
@@ -249,6 +309,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openYoutubeChannel(@NonNull final Context ctx,@StringRes final int channelRes) {
+        return openYoutubeChannel(ctx,ctx.getString(channelRes));
+    }
+
+    @NonNull
     public static Button openYoutubeUser(@NonNull final Context ctx,@NonNull final String user) {
         return customButton(ctx,R.drawable.ic_youtube_black,R.string.btn_youtube,new View.OnClickListener() {
             @Override
@@ -256,6 +321,11 @@ public class ButtonFactory {
                 Util.open(ctx,Util.newIntent(K.YOUTUBE_USER_WEB_URL,user));
             }
         });
+    }
+
+    @NonNull
+    public static Button openYoutubeUser(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openYoutubeUser(ctx,ctx.getString(userRes));
     }
 
     @NonNull
@@ -276,6 +346,12 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openLinkedIn(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openLinkedIn(ctx,ctx.getString(userRes));
+
+    }
+
+    @NonNull
     public static Button openSkype(@NonNull final Context ctx,@NonNull final String phone) {
         return customButton(ctx,R.drawable.ic_skype_black,R.string.btn_skype,new View.OnClickListener() {
             @Override
@@ -289,6 +365,11 @@ public class ButtonFactory {
                 }
             }
         });
+    }
+
+    @NonNull
+    public static Button openSkype(@NonNull final Context ctx,@StringRes final int phoneRes) {
+        return openSkype(ctx,ctx.getString(phoneRes));
     }
     //endregion
 
@@ -307,6 +388,12 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openPlayStoreDev(@NonNull final Context ctx,@StringRes final int userRes) {
+        return openPlayStoreDev(ctx,ctx.getString(userRes));
+
+    }
+
+    @NonNull
     public static Button openPlayStoreAppPage(@NonNull final Context ctx,@NonNull final String app) {
         return customButton(ctx,R.drawable.ic_google_play_store_black,R.string.btn_play_store,new View.OnClickListener() {
             @Override
@@ -322,6 +409,11 @@ public class ButtonFactory {
     }
 
     @NonNull
+    public static Button openPlayStoreAppPage(@NonNull final Context ctx,@StringRes final int appRes) {
+        return openPlayStoreAppPage(ctx,ctx.getString(appRes));
+    }
+
+    @NonNull
     public static Button openPlayStoreAppsList(@NonNull final Context ctx,@NonNull final String app) {
         return customButton(ctx,R.drawable.ic_google_play_store_black,R.string.btn_play_store,new View.OnClickListener() {
             @Override
@@ -334,6 +426,11 @@ public class ButtonFactory {
                 }
             }
         });
+    }
+
+    @NonNull
+    public static Button openPlayStoreAppsList(@NonNull final Context ctx,@StringRes final int appRes) {
+        return openPlayStoreAppsList(ctx,ctx.getString(appRes));
     }
     //endregion
 
