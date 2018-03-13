@@ -1,13 +1,16 @@
 package net.ej3.libs.aboutappdevlib;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +22,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180305
+ * @version 20180313
  */
 @SuppressWarnings("unused")
 public class AboutFragment extends Fragment {
@@ -54,6 +57,7 @@ public class AboutFragment extends Fragment {
     //region Builder
     //
     public static final class Builder {
+        Context ctx;
         int mTabsMode = TabLayout.MODE_FIXED;
         @ColorInt int mTabsBackgroundColor = 0xff607d8b;
         @ColorInt int mTabsNormalColor = 0x99ffffff;
@@ -62,8 +66,8 @@ public class AboutFragment extends Fragment {
         List<Object> mTabHeader = new ArrayList<>();
         List<Fragment> mPages = new ArrayList<>();
 
-        public Builder() {
-            //Empty
+        public Builder(@NonNull final Context ctx) {
+            this.ctx = ctx;
         }
 
         public Builder withTabsMode(int mode) {
@@ -76,8 +80,18 @@ public class AboutFragment extends Fragment {
             return this;
         }
 
+        public Builder withTabsBackgroundColorRes(@ColorRes int tabsBackgroundColorRes) {
+            mTabsBackgroundColor = ContextCompat.getColor(ctx,tabsBackgroundColorRes);
+            return this;
+        }
+
         public Builder withTabsNormalColor(@ColorInt int tabsNormalColor) {
             mTabsNormalColor = tabsNormalColor;
+            return this;
+        }
+
+        public Builder withTabsNormalColorRes(@ColorRes int tabsNormalColorRes) {
+            mTabsNormalColor = ContextCompat.getColor(ctx,tabsNormalColorRes);
             return this;
         }
 
@@ -86,8 +100,18 @@ public class AboutFragment extends Fragment {
             return this;
         }
 
+        public Builder withTabsSelectedColorRes(@ColorRes int tabsSelectedColorRes) {
+            mTabsSelectedColor = ContextCompat.getColor(ctx,tabsSelectedColorRes);
+            return this;
+        }
+
         public Builder withTabsIndicatorColor(@ColorInt int tabsIndicatorColor) {
             mTabsIndicatorColor = tabsIndicatorColor;
+            return this;
+        }
+
+        public Builder withTabsIndicatorColorRes(@ColorRes int tabsIndicatorColorRes) {
+            mTabsIndicatorColor = ContextCompat.getColor(ctx,tabsIndicatorColorRes);
             return this;
         }
 

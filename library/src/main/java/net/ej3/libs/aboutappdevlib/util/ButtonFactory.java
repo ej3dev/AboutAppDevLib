@@ -21,7 +21,7 @@ import net.ej3.libs.aboutappdevlib.R;
 
 /**
  * @author E.J. Jiménez
- * @version 20180309
+ * @version 20180312
  */
 @SuppressWarnings({"unused","WeakerAccess","SameParameterValue"})
 public class ButtonFactory {

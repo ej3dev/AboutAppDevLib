@@ -32,7 +32,7 @@ import net.ej3.libs.aboutappdevlib.util.LibBuilder;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180313
  */
 public class DemoActivity extends AppCompatActivity {
 
@@ -168,7 +168,7 @@ public class DemoActivity extends AppCompatActivity {
             )
             .build();
 
-        return new AboutFragment.Builder()
+        return new AboutFragment.Builder(this)
                 .withTabsMode(TabLayout.MODE_SCROLLABLE)
                 .withTabsBackgroundColor(ContextCompat.getColor(this,R.color.md_blue_grey_600))
                 .addPage("APP",appFragment)
@@ -188,8 +188,8 @@ public class DemoActivity extends AppCompatActivity {
             .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
             .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
             .withActions(
-                ButtonFactory.openGithub(this,getString(R.string.about_dev_github)),
-                ButtonFactory.openBitbucket(this,getString(R.string.about_dev_github))
+                ButtonFactory.openGithub(this,R.string.about_dev_github),
+                ButtonFactory.openBitbucket(this,R.string.about_dev_github)
             )
             .build();
 
@@ -198,7 +198,7 @@ public class DemoActivity extends AppCompatActivity {
             .withAuthor(R.string.about_dev_author)
             .withInfo(R.string.about_dev_info)
             .withActions(
-                ButtonFactory.openPlayStoreDev(this,getString(R.string.about_dev_store))
+                ButtonFactory.openPlayStoreDev(this,R.string.about_dev_store)
             )
             .withApps(getString(R.string.about_dev_other_apps),
                 new AppBuilder(this,R.string.about_dev_rea_name).withUrlOrPackageName(R.string.about_dev_rea_package).withDescription(R.string.about_dev_rea_description).withIcon(R.drawable.icon_app_rea).build(),
@@ -218,7 +218,7 @@ public class DemoActivity extends AppCompatActivity {
             )
             .build();
 
-        return new AboutFragment.Builder()
+        return new AboutFragment.Builder(this)
             .withTabsMode(TabLayout.MODE_FIXED)
             .withTabsBackgroundColor(ContextCompat.getColor(this,R.color.md_blue_grey_600))
             .addPage(getString(R.string.about_app_tab),appFragment)
