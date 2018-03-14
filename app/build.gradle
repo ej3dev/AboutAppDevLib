@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 try { apply from: '../.signing/signing.gradle' } catch(ignored) { println "Missing signing data" }
 
 android {
@@ -33,12 +34,6 @@ android {
         enabled = true
     }
 
-    sourceSets {
-        main.res.srcDirs += [
-            'src/main/java/net/ej3/libs/aboutappdevlib/app/ui/section/about/res'
-        ]
-    }
-
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -59,6 +54,7 @@ dependencies {
     implementation "com.android.support:support-annotations:${rootProject.ext.supportLibraryVersion}"
 
     //google
+    implementation "com.google.firebase:firebase-core:${rootProject.ext.firebaseVersion}"
     implementation 'com.google.android:flexbox:0.3.2'
 
     //ui
@@ -66,6 +62,7 @@ dependencies {
     implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
 
     //dev
+    implementation('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') { transitive = true }
     implementation 'com.orhanobut:logger:2.1.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
@@ -73,3 +70,5 @@ dependencies {
     //modules
     implementation project(':library')
 }
+
+apply plugin: 'com.google.gms.google-services'

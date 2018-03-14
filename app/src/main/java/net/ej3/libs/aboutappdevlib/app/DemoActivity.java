@@ -45,7 +45,6 @@ public class DemoActivity extends AppCompatActivity {
     public static final int DRAWER_EXAMPLE_2 = 2;
     public static final int DRAWER_EXAMPLE_3 = 3;
     public static final int DRAWER_EXAMPLE_4 = 4;
-    public static final int DRAWER_EXAMPLE_5 = 5;
     public static final int DRAWER_ABOUT     = 6;
     //endregion
 
@@ -200,9 +199,9 @@ public class DemoActivity extends AppCompatActivity {
             .build();
 
         Fragment teamFragment = new AboutDevFragment.Builder(this)
-            .withInfo("This is a list of programmers who <b>have not worked</b> on this project. Even so, they have all my admiration and respect :-)")
+            .withInfo("<small>This is a list of programmers who <b>have not worked</b> on this project. Even so, they have all my admiration and respect :-)</small>")
             .withDevs("Programmers",
-                new DevBuilder(this,"Paco Menéndez").withJob("Game programmer").withBio(" Spanish computer game programmer who wrote games for 8-bit computers. His most famous work is La abadía del crimen which is regarded as one of the best games made for 8 bit computers.").withUrl("https://en.wikipedia.org/wiki/Paco_Men%C3%A9ndez").build(),
+                new DevBuilder(this,"Paco Menéndez").withJob("Game programmer").withBio("Spanish computer game programmer who wrote games for 8-bit computers. His most famous work is La abadía del crimen which is regarded as one of the best games made for 8 bit computers.").withUrl("https://en.wikipedia.org/wiki/Paco_Men%C3%A9ndez").build(),
                 new DevBuilder(this,"Sid Meier").withJob("Game programmer & designer").withBio("Canadian-American programmer, designer, and producer of several strategy video games and simulation video games, including the Civilization series").withUrl("https://en.wikipedia.org/wiki/Sid_Meier").build(),
                 new DevBuilder(this,"John Carmack").withJob("Programmer").withBio("American computer programmer, engineer, and businessman. He co-founded id Software. Carmack was the lead programmer of the id video games Commander Keen, Wolfenstein 3D, Doom, Quake, Rage and their sequels.").withUrl("https://en.wikipedia.org/wiki/John_Carmack").build(),
                 new DevBuilder(this,"Jon Ritman").withJob("Game programmer").withBio("Jon Ritman is a software developer, notable for his work on major 1980s video games. Working primarily on games for the ZX Spectrum and Amstrad CPC home computer range.").withUrl("https://en.wikipedia.org/wiki/Jon_Ritman").build(),
@@ -309,8 +308,9 @@ public class DemoActivity extends AppCompatActivity {
             .withThanks(getString(R.string.about_app_thanks_title),getString(R.string.about_app_thanks_text))
             .withChangelog(getString(R.string.about_app_changelog_title),getString(R.string.about_app_changelog_text))
             .withActions(
-                ButtonFactory.openPlayStoreAppPage(this,BuildConfig.APPLICATION_ID),
-                ButtonFactory.shareThisApp(this,R.string.about_app_share_subject,R.string.about_app_share_message)
+                ButtonFactory.shareThisApp(this,R.string.about_app_share_subject,R.string.about_app_share_message),
+                ButtonFactory.openGithub(this,R.string.about_app_github),
+                ButtonFactory.openPlayStoreAppPage(this,BuildConfig.APPLICATION_ID)
             )
             .build();
 

@@ -2,10 +2,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:3.1.2'
+        classpath 'io.fabric.tools:gradle:1.24.4'
     }
 }
 
@@ -13,6 +16,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.google.com/' }
     }
 }
 
@@ -20,7 +24,7 @@ allprojects {
 ext {
     applicationId = 'net.ej3.libs.aboutappdevlib.app'
     versionCode = 20180314
-    versionName = '0.1.6'
+    versionName = '0.1.8'
     minSdkVersion = 21
     compileSdkVersion = 27
     targetSdkVersion = 27

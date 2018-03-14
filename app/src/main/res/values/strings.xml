@@ -44,6 +44,7 @@
     <string name="about_app_name">AboutAppDevLib Demo</string>
     <string name="about_app_version">&lt;b>v%1$s&lt;/b> - %2$d</string>
     <string name="about_app_copyright">©2018 E.J. Jiménez</string>
+    <string name="about_app_github">ej3dev/AboutAppDevLib</string>
     <string name="about_app_share_subject">Try AboutAppDevLib Demo</string>
     <string name="about_app_share_message">Please, take a look to AboutAppDevLib Demo:\n%s</string>
     <string name="about_app_thanks_title">Thanks</string>
@@ -52,14 +53,11 @@
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v0.1.5:&lt;/big> Mo.1-Mar-2018&lt;/b>
+		&lt;b>&lt;big>v0.2.0:&lt;/big> Th.15-Mar-2018&lt;/b>
 		&lt;br/>* First public release
         &lt;br/>
-		&lt;br/>&lt;b>&lt;big>v0.1.4:&lt;/big> Su.11-Mar-2018&lt;/b>
+		&lt;br/>&lt;b>&lt;big>v0.1.8:&lt;/big> We.14-Mar-2018&lt;/b>
 		&lt;br/>* First beta release
-        &lt;br/>
-		&lt;br/>&lt;b>&lt;big>v0.1.3:&lt;/big> Sa.10-Mar-2018&lt;/b>
-		&lt;br/>* First alpha release
     </string>
 
     <!-- Dev -->
@@ -95,7 +93,7 @@
     <string name="about_lib_aboutappdevlib_name">AboutAppDevLib</string>
     <string name="about_lib_aboutappdevlib_author">E.J. Jiménez</string>
     <string name="about_lib_aboutappdevlib_description">An easy to use library to build About screens for your apps</string>
-    <string name="about_lib_aboutappdevlib_url">https://github.com/ej3dev</string>
+    <string name="about_lib_aboutappdevlib_url">https://github.com/ej3dev/AboutAppDevLib</string>
 
     <string name="about_lib_material_drawer_name">MaterialDrawer</string>
     <string name="about_lib_material_drawer_author">Mike Penz</string>

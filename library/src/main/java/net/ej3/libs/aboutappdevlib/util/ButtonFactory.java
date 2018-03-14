@@ -21,7 +21,7 @@ import net.ej3.libs.aboutappdevlib.R;
 
 /**
  * @author E.J. Jiménez
- * @version 20180312
+ * @version 20180314
  */
 @SuppressWarnings({"unused","WeakerAccess","SameParameterValue"})
 public class ButtonFactory {
@@ -188,6 +188,16 @@ public class ButtonFactory {
     @NonNull
     public static Button openGithub(@NonNull final Context ctx,@StringRes final int userRes) {
         return openGithub(ctx,ctx.getString(userRes));
+    }
+
+    @NonNull
+    public static Button openGithub(@NonNull final Context ctx,@NonNull final String user,@NonNull final String repo) {
+        return openGithub(ctx,user+"/"+repo);
+    }
+
+    @NonNull
+    public static Button openGithub(@NonNull final Context ctx,@StringRes final int userRes,@StringRes final int repoRes) {
+        return openGithub(ctx,ctx.getString(userRes),ctx.getString(repoRes));
     }
 
     @NonNull
