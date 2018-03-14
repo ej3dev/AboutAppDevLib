@@ -9,4 +9,34 @@
         <item name="colorAccent">@color/app_accent</item>
     </style>
 
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Styles
+    -->
+    <style name="home_container">
+        <item name="android:layout_width">match_parent</item>"
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>"
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="home_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Subhead</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="home_description">
+        <item name="android:layout_width">match_parent</item>"
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Small</item>
+    </style>
+
+    <style name="home_divider">
+        <item name="android:layout_width">match_parent</item>"
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#22546e7a</item>
+    </style>
+
 </resources>

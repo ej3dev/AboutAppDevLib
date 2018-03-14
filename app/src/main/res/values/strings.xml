@@ -4,6 +4,8 @@
         DemoActivity
     -->
     <string name="app_name">AboutAppDevLib Demo</string>
+    <string name="app_author">by E.J. Jiménez</string>
+    <string name="app_description"><b>AboutAppDevLib</b> is a library to build easily a fully featured <i>About</i> section for your app. With a few lines of code you can create a screens with info about you, your app and third party libraries used.</string>
 
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -11,6 +13,26 @@
     -->
     <string name="drawer_profile_name">AboutAppDevLib</string>
     <string name="drawer_profile_email">by E.J. Jiménez</string>
+    <string name="drawer_home">Home</string>
+    <string name="drawer_example_1">Fixed tabs</string>
+    <string name="drawer_example_2">Scrollable tabs</string>
+    <string name="drawer_example_3">Without tabs</string>
+    <string name="drawer_example_4">Custom colors</string>
+    <string name="drawer_about">About</string>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        HomeFragment
+    -->
+    <string name="home_example_1_title">Fixed tabs</string>
+    <string name="home_example_1_description">Example with two fixed tabs using <i>AboutAppFragment</i> and <i>AboutDevFragment</i></string>
+    <string name="home_example_2_title">Scrollable tabs</string>
+    <string name="home_example_2_description">Example with 4 scrollable tabs in which the last one is the same <i>Fragment</i> used in the <i>Home</i> section</string>
+    <string name="home_example_3_title">Without tabs</string>
+    <string name="home_example_3_description">Example without tabs that show a simple developer info screen builded with <i>AboutDevFragment</i></string>
+    <string name="home_example_4_title">Custom colors</string>
+    <string name="home_example_4_description">Example that change the default colors used in the rest of examples</string>
+
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         AboutFragment

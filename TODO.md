@@ -2,6 +2,9 @@
 # AboutAppDevLib TODO
 #
 
+### Tu.13-Mar-2018
+- [x] AboutFragment: add tab-less support
+
 ### Su.11-Mar-2018
 - [x] Add methods with resource ID parameters in ButtonFactory
 

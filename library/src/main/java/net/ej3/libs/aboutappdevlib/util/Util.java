@@ -12,7 +12,7 @@ import android.util.Patterns;
 
 /**
  * @author E.J. Jiménez
- * @version 20180310
+ * @version 20180314
  */
 @SuppressWarnings({"unused","WeakerAccess"})
 public class Util {
@@ -38,7 +38,7 @@ public class Util {
     //region Format
     //
     public static Spanned toHtml(String text) {
-        return Html.fromHtml(""+text);
+        return Html.fromHtml(text == null ? "" : text);
     }
     //endregion
 

@@ -1,4 +1,4 @@
-<img src="app/src/main/res/drawable/icon_lib_aboutappdevlib.png?raw=true" height="48" align="left" hspace="1" vspace="1"/>
+<img src="./app/src/main/res/drawable/icon_lib_aboutappdevlib.png" height="48" align="left" hspace="1" vspace="1"/>
 
 AboutAppDevLib
 ==============
@@ -105,9 +105,9 @@ Build-in screens
 
 **AboutAppDevLib** library includes a collection of classes to generate `Fragments` as screens commonly used to display information about your app.
 
-### AboutFragment
+### AboutTabsFragment
 ```java
-AboutAppFragment.Builder(@NonNull final Context ctx)
+AboutTabsFragment.Builder(@NonNull final Context ctx)
     .withTabsMode(int mode);
     .withTabsBackgroundColor(@ColorInt int tabsBackgroundColor);
     .withTabsBackgroundColorRes(@ColorRes int tabsBackgroundColorRes);
@@ -118,14 +118,15 @@ AboutAppFragment.Builder(@NonNull final Context ctx)
     .withTabsIndicatorColor(@ColorInt int tabsIndicatorColor);
     .withTabsIndicatorColorRes(@ColorRes int tabsIndicatorColorRes);
     .addPage(@NonNull String tabTitle,@NonNull Fragment fragment);
-    .addPage(@DrawableRes int tabIcon,@NonNull Fragment fragment);
+    .addPage(@StringRes int tabTitleRes,@NonNull Fragment fragment);
+    .addPageWithIcon(@DrawableRes int tabIcon,@NonNull Fragment fragment);
 ```
 
 ### AboutAppFragment
 ```java
 AboutAppFragment.Builder(@NonNull final Context ctx)
     .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundResource(@ColorRes @DrawableRes int backgroundRes);
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
     .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
     .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
     .withIcon(@Nullable Drawable icon);
@@ -147,7 +148,7 @@ AboutAppFragment.Builder(@NonNull final Context ctx)
 ```java
 AboutDevFragment.Builder(@NonNull final Context ctx)
     .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundResource(@ColorRes @DrawableRes int backgroundRes);
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
     .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
     .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
     .withLogo(@Nullable Drawable logo);
@@ -167,7 +168,7 @@ AboutDevFragment.Builder(@NonNull final Context ctx)
 ```java
 AboutLibFragment.Builder(@NonNull final Context ctx)
     .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundResource(@ColorRes @DrawableRes int backgroundRes);
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
     .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
     .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
     .withInfo(@Nullable String info);
@@ -287,6 +288,14 @@ LibBuilder(@NonNull final Context ctx,@StringRes final int nameRes)
     .withUrl(@Nullable final String url);
     .withUrl(@StringRes final int urlRes);
 ```
+
+
+Apps using the AboutAppDevLib
+-----------------------------
+
+Send me an [email](emailto:ej3dev@gmail.com) to add new apps to this list:
+
+* [Reminder Alarm](https://play.google.com/store/apps/details?id=net.ej3.apps.reminderalarm)
 
 
 License

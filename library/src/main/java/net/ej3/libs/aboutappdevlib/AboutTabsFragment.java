@@ -8,6 +8,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -15,17 +16,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import net.ej3.libs.aboutappdevlib.databinding.AboutFragmentBinding;
+import net.ej3.libs.aboutappdevlib.databinding.AboutTabsFragmentBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180313
+ * @version 20180314
  */
 @SuppressWarnings("unused")
-public class AboutFragment extends Fragment {
+public class AboutTabsFragment extends Fragment {
 
     //--------------------------------------------------------------------------
     //region Constants
@@ -47,7 +48,7 @@ public class AboutFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Components
     //
-    private AboutFragmentBinding binding;
+    private AboutTabsFragmentBinding binding;
     private List<Object> tabHeader;
     private List<Fragment> pages;
     //endregion
@@ -121,22 +122,28 @@ public class AboutFragment extends Fragment {
             return this;
         }
 
-        public Builder addPage(@DrawableRes int tabIcon,@NonNull Fragment fragment) {
+        public Builder addPage(@StringRes int tabTitleRes,@NonNull Fragment fragment) {
+            mTabHeader.add(ctx.getString(tabTitleRes));
+            mPages.add(fragment);
+            return this;
+        }
+
+        public Builder addPageWithIcon(@DrawableRes int tabIcon,@NonNull Fragment fragment) {
             mTabHeader.add(tabIcon);
             mPages.add(fragment);
             return this;
         }
 
-        public AboutFragment build() {
-            AboutFragment aboutFragment = new AboutFragment();
-            aboutFragment.tabsMode = mTabsMode;
-            aboutFragment.tabsBackgroundColor = mTabsBackgroundColor;
-            aboutFragment.tabsNormalColor = mTabsNormalColor;
-            aboutFragment.tabsIndicatorColor = mTabsIndicatorColor;
-            aboutFragment.tabsSelectedColor = mTabsSelectedColor;
-            aboutFragment.tabHeader = mTabHeader;
-            aboutFragment.pages = mPages;
-            return aboutFragment;
+        public AboutTabsFragment build() {
+            AboutTabsFragment aboutTabsFragment = new AboutTabsFragment();
+            aboutTabsFragment.tabsMode = mTabsMode;
+            aboutTabsFragment.tabsBackgroundColor = mTabsBackgroundColor;
+            aboutTabsFragment.tabsNormalColor = mTabsNormalColor;
+            aboutTabsFragment.tabsIndicatorColor = mTabsIndicatorColor;
+            aboutTabsFragment.tabsSelectedColor = mTabsSelectedColor;
+            aboutTabsFragment.tabHeader = mTabHeader;
+            aboutTabsFragment.pages = mPages;
+            return aboutTabsFragment;
         }
     }
     //endregion
@@ -148,7 +155,7 @@ public class AboutFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.about_fragment,container,false);
+        binding = DataBindingUtil.inflate(inflater,R.layout.about_tabs_fragment,container,false);
         buildTabs();
         binding.pager.setAdapter(new AboutPagerAdapter(getChildFragmentManager(),pages));
         binding.pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(binding.tabs));
@@ -193,6 +200,5 @@ public class AboutFragment extends Fragment {
         });
     }
     //endregion
-
+    
 }
-

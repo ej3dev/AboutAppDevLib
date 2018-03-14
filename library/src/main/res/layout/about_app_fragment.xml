@@ -91,6 +91,7 @@
 
                 <TextView
                     style="@style/about_text_paragraph"
+                    android:textColor="@{secondaryTextColor}"
                     android:text="@{thanksText}"/>
 
             </LinearLayout>
@@ -114,6 +115,7 @@
 
                 <TextView
                     style="@style/about_text_paragraph"
+                    android:textColor="@{secondaryTextColor}"
                     android:text="@{changelogText}"/>
 
             </LinearLayout>

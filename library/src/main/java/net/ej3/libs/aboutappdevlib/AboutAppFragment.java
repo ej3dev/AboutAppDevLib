@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180310
+ * @version 20180314
  */
 @SuppressWarnings("unused")
 public class AboutAppFragment extends Fragment {
@@ -101,8 +101,8 @@ public class AboutAppFragment extends Fragment {
             return this;
         }
 
-        public Builder withBackgroundResource(@ColorRes @DrawableRes int backgroundRes) {
-            mBackground = backgroundRes;
+        public Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
+            mBackground = ContextCompat.getColor(ctx,backgroundColorRes);
             return this;
         }
 

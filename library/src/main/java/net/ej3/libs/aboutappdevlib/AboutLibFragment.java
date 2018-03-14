@@ -5,7 +5,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -28,7 +27,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180310
+ * @version 20180314
  */
 @SuppressWarnings({"unused","SameParameterValue"})
 public class AboutLibFragment extends Fragment {
@@ -90,8 +89,8 @@ public class AboutLibFragment extends Fragment {
             return this;
         }
 
-        public Builder withBackgroundResource(@ColorRes @DrawableRes int backgroundRes) {
-            mBackground = backgroundRes;
+        public Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
+            mBackground = ContextCompat.getColor(ctx,backgroundColorRes);
             return this;
         }
 
