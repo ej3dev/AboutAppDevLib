@@ -46,6 +46,7 @@ public class DemoActivity extends AppCompatActivity {
     public static final int DRAWER_EXAMPLE_3 = 3;
     public static final int DRAWER_EXAMPLE_4 = 4;
     public static final int DRAWER_ABOUT     = 6;
+    public static final int DRAWER_LICENSE   = 7;
     //endregion
 
 
@@ -105,7 +106,8 @@ public class DemoActivity extends AppCompatActivity {
                 new PrimaryDrawerItem().withIdentifier(DRAWER_EXAMPLE_3).withName(R.string.drawer_example_3).withIcon(GoogleMaterial.Icon.gmd_filter_3).withSelectable(false),
                 new PrimaryDrawerItem().withIdentifier(DRAWER_EXAMPLE_4).withName(R.string.drawer_example_4).withIcon(GoogleMaterial.Icon.gmd_filter_4).withSelectable(false),
                 new DividerDrawerItem(),
-                new PrimaryDrawerItem().withIdentifier(DRAWER_ABOUT).withName(R.string.drawer_about).withIcon(GoogleMaterial.Icon.gmd_info).withSelectable(false)
+                new PrimaryDrawerItem().withIdentifier(DRAWER_ABOUT).withName(R.string.drawer_about).withIcon(GoogleMaterial.Icon.gmd_info).withSelectable(false),
+                new PrimaryDrawerItem().withIdentifier(DRAWER_LICENSE).withName(R.string.drawer_license).withIcon(GoogleMaterial.Icon.gmd_assignment).withSelectable(false)
             )
             .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                 @Override
@@ -118,6 +120,7 @@ public class DemoActivity extends AppCompatActivity {
                         case DRAWER_EXAMPLE_3: show(buildWithoutTabsFragment()); break;
                         case DRAWER_EXAMPLE_4: show(buildCustomColorsFragment()); break;
                         case DRAWER_ABOUT: show(buildAboutFragment()); break;
+                        case DRAWER_LICENSE: show(buildLicenseFragment()); break;
                     }
                     return false;
                 }
@@ -213,9 +216,9 @@ public class DemoActivity extends AppCompatActivity {
             .withInfo(getString(R.string.about_lib_info))
             .withLibs(getString(R.string.about_lib_libraries),
                 new LibBuilder(this,R.string.about_lib_aboutappdevlib_name).withAuthor(R.string.about_lib_aboutappdevlib_author).withDescription(R.string.about_lib_aboutappdevlib_description).withUrl(R.string.about_lib_aboutappdevlib_url).withIcon(R.drawable.icon_lib_aboutappdevlib).build(),
-                new LibBuilder(this,R.string.about_lib_material_drawer_name).withAuthor(R.string.about_lib_material_drawer_author).withDescription(R.string.about_lib_material_drawer_description).withUrl(R.string.about_lib_material_drawer_url).build(),
-                new LibBuilder(this,R.string.about_lib_logger_name).withAuthor(R.string.about_lib_logger_author).withDescription(R.string.about_lib_logger_description).withUrl(R.string.about_lib_logger_url).build(),
-                new LibBuilder(this,R.string.about_lib_leak_canary_name).withAuthor(R.string.about_lib_leak_canary_author).withDescription(R.string.about_lib_leak_canary_description).withUrl(R.string.about_lib_leak_canary_url).withIcon(R.drawable.leak_canary_icon).build()
+                new LibBuilder(this,R.string.about_lib_material_drawer_name).withAuthor(R.string.about_lib_material_drawer_author).withDescription(R.string.about_lib_material_drawer_description).withUrl(R.string.about_lib_material_drawer_url).withIcon(R.drawable.icon_lib_material_drawer).build(),
+                new LibBuilder(this,R.string.about_lib_logger_name).withAuthor(R.string.about_lib_logger_author).withDescription(R.string.about_lib_logger_description).withUrl(R.string.about_lib_logger_url).withIcon(R.drawable.icon_lib_logger).build(),
+                new LibBuilder(this,R.string.about_lib_leak_canary_name).withAuthor(R.string.about_lib_leak_canary_author).withDescription(R.string.about_lib_leak_canary_description).withUrl(R.string.about_lib_leak_canary_url).withIcon(R.drawable.icon_lib_leak_canary).build()
             )
             .build();
 
@@ -334,9 +337,9 @@ public class DemoActivity extends AppCompatActivity {
             .withInfo(getString(R.string.about_lib_info))
             .withLibs(getString(R.string.about_lib_libraries),
                 new LibBuilder(this,R.string.about_lib_aboutappdevlib_name).withAuthor(R.string.about_lib_aboutappdevlib_author).withDescription(R.string.about_lib_aboutappdevlib_description).withUrl(R.string.about_lib_aboutappdevlib_url).withIcon(R.drawable.icon_lib_aboutappdevlib).build(),
-                new LibBuilder(this,R.string.about_lib_material_drawer_name).withAuthor(R.string.about_lib_material_drawer_author).withDescription(R.string.about_lib_material_drawer_description).withUrl(R.string.about_lib_material_drawer_url).build(),
-                new LibBuilder(this,R.string.about_lib_logger_name).withAuthor(R.string.about_lib_logger_author).withDescription(R.string.about_lib_logger_description).withUrl(R.string.about_lib_logger_url).build(),
-                new LibBuilder(this,R.string.about_lib_leak_canary_name).withAuthor(R.string.about_lib_leak_canary_author).withDescription(R.string.about_lib_leak_canary_description).withUrl(R.string.about_lib_leak_canary_url).withIcon(R.drawable.leak_canary_icon).build()
+                new LibBuilder(this,R.string.about_lib_material_drawer_name).withAuthor(R.string.about_lib_material_drawer_author).withDescription(R.string.about_lib_material_drawer_description).withUrl(R.string.about_lib_material_drawer_url).withIcon(R.drawable.icon_lib_material_drawer).build(),
+                new LibBuilder(this,R.string.about_lib_logger_name).withAuthor(R.string.about_lib_logger_author).withDescription(R.string.about_lib_logger_description).withUrl(R.string.about_lib_logger_url).withIcon(R.drawable.icon_lib_logger).build(),
+                new LibBuilder(this,R.string.about_lib_leak_canary_name).withAuthor(R.string.about_lib_leak_canary_author).withDescription(R.string.about_lib_leak_canary_description).withUrl(R.string.about_lib_leak_canary_url).withIcon(R.drawable.icon_lib_leak_canary).build()
             )
             .build();
 
@@ -347,6 +350,14 @@ public class DemoActivity extends AppCompatActivity {
             .addPage(R.string.about_dev_tab,devFragment)
             .addPage(R.string.about_lib_tab,libFragment)
             .build();
+    }
+
+    Fragment buildLicenseFragment() {
+        drawer.getDrawerLayout().setStatusBarBackground(R.color.md_blue_grey_700);
+        toolbar.setBackgroundResource(R.color.md_blue_grey_500);
+        toolbar.setTitle(R.string.drawer_license);
+
+        return new LicenseFragment();
     }
     //endregion
 
