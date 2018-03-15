@@ -1,4 +1,8 @@
-<img src="./app/src/main/res/drawable/icon_lib_aboutappdevlib.png" height="48" align="left" hspace="1" vspace="1"/>
+[![](https://jitpack.io/v/ej3dev/AboutAppDevLib.svg)](https://jitpack.io/#ej3dev/AboutAppDevLib)
+![](https://jitpack.io/v/ej3dev/AboutAppDevLib/month.svg)
+[![](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/LICENSE)
+[![](https://ga-beacon.appspot.com/UA-56739606-2/readme?pixel)](https://github.com/ej3dev/AboutAppDevLib)
+<img align="right" src="https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/app/src/main/res/drawable/icon_lib_aboutappdevlib.png" width="128" height="128"/>
 
 AboutAppDevLib
 ==============
@@ -15,7 +19,8 @@ AboutAppDevLib
  
 ### Sample app
 
-Take a look to the sample app to see a working example of the possibilities of **AboutAppDevLib** library
+Take a look to the sample app to see a working example of the possibilities of **AboutAppDevLib** library:
+<br><a href="https://play.google.com/store/apps/details?id=net.ej3.libs.aboutappdevlib.app"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png" height="60" /></a>
 
 
 Setup
@@ -32,8 +37,8 @@ Setup
 ```gradle
 allprojects {
     repositories {
-	    ...
-	    maven { url "https://jitpack.io" }
+        ...
+        maven { url "https://jitpack.io" }
     }
 }
 ```
@@ -45,6 +50,12 @@ dependencies {
     implementation 'net.ej3.libs.aboutappdevlib:AboutAppDevLib:1.0.0'
 }
 ```
+
+### Clone repo & run source code
+
+There is a sample app in the [app/](https://github.com/ej3dev/AboutAppDevLib/tree/master/app) directory that demonstrates most of the features of **AboutAppDevLib** library. Load the project in [Android Studio](https://en.wikipedia.org/wiki/Android_Studio) and run it on your Android device to see a demonstration.
+
+Before you can run the sample app, you must create a project in the [Firebase console](https://console.firebase.google.com/). Add an Android app to the project, and copy the generated `google-services.json` file into the [app/](https://github.com/ej3dev/AboutAppDevLib/tree/master/app) directory.
 
 
 Use
@@ -66,9 +77,9 @@ public class BasicExampleActivity extends AppCompatActivity {
         //
         Fragment appFragment = new AboutAppFragment.Builder(this)
             .withIcon(R.drawable.ic_launcher)
-            .withName(getString(R.string.about_app_name))
+            .withName(R.string.about_app_name)
             .withVersion(getString(R.string.about_app_version,BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE))
-            .withCopyright(getString(R.string.about_app_copyright));
+            .withCopyright(R.string.about_app_copyright);
         
         Fragment devFragment = new AboutDevFragment.Builder(this)
             .withLogo(R.drawable.icon_dev)
@@ -97,7 +108,7 @@ public class BasicExampleActivity extends AppCompatActivity {
 
 ### More examples
 
-Take a look to [`DemoActivity`](https://github.com/ej3dev/AboutAppDevLib) class to see more examples of how to use **AboutAppDevLib**.
+Take a look to [`DemoActivity`](https://github.com/ej3dev/AboutAppDevLib/blob/master/app/src/main/java/net/ej3/libs/aboutappdevlib/app/DemoActivity.java) class to see more examples of how to use **AboutAppDevLib**.
 
 
 Build-in screens
@@ -181,7 +192,7 @@ AboutLibFragment.Builder(@NonNull final Context ctx)
 Build-in buttons
 ----------------
 
-[`ButtonFactory`](https://github.com/ej3dev/AboutAppDevLib) class include methods to build commonly used action buttons:
+[`ButtonFactory`](https://github.com/ej3dev/AboutAppDevLib/blob/master/library/src/main/java/net/ej3/libs/aboutappdevlib/util/ButtonFactory.java) class include methods to build commonly used action buttons:
 
 ### Custom buttons
 ```java

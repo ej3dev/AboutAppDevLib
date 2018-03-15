@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -30,10 +32,11 @@ import net.ej3.libs.aboutappdevlib.util.AppBuilder;
 import net.ej3.libs.aboutappdevlib.util.ButtonFactory;
 import net.ej3.libs.aboutappdevlib.util.DevBuilder;
 import net.ej3.libs.aboutappdevlib.util.LibBuilder;
+import net.ej3.libs.aboutappdevlib.util.Util;
 
 /**
  * @author E.J. Jiménez
- * @version 20180313
+ * @version 20180315
  */
 public class DemoActivity extends AppCompatActivity {
 
@@ -47,6 +50,8 @@ public class DemoActivity extends AppCompatActivity {
     public static final int DRAWER_EXAMPLE_4 = 4;
     public static final int DRAWER_ABOUT     = 6;
     public static final int DRAWER_LICENSE   = 7;
+
+    private static final int MENU_PRIVACY = 0;
     //endregion
 
 
@@ -68,6 +73,26 @@ public class DemoActivity extends AppCompatActivity {
         setContentView(R.layout.demo_activity);
         buildDrawer(savedInstanceState);
         show(buildHomeFragment());
+    }
+    //endregion
+
+
+    //--------------------------------------------------------------------------
+    //region Toolbar Options Menu
+    //
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE,MENU_PRIVACY,1,R.string.menu_privacy).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if( item.getItemId() == MENU_PRIVACY ) {
+            Util.open(this,getString(R.string.menu_privacy_url));
+            return true;
+        }
+        return false;
     }
     //endregion
 

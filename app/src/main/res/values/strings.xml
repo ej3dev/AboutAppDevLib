@@ -6,6 +6,8 @@
     <string name="app_name">AboutAppDevLib Demo</string>
     <string name="app_author">by E.J. Jiménez</string>
     <string name="app_description"><b>AboutAppDevLib</b> is a library to build easily a fully featured <i>About</i> section for your app. With a few lines of code you can create a screens with info about you, your app and third party libraries used.</string>
+    <string name="menu_privacy">Privacy</string>
+    <string name="menu_privacy_url">http://ej3.000webhostapp.com/privacy/</string>
 
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -38,7 +40,6 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         AboutFragment
     -->
-    <string name="about_privacy_url">http://ej3.000webhostapp.com/privacy/</string>
 
     <!-- App -->
     <string name="about_app_tab">App</string>
@@ -54,8 +55,9 @@
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v0.2.0:&lt;/big> Th.15-Mar-2018&lt;/b>
-		&lt;br/>* First public release
+		&lt;b>&lt;big>v1.0.0:&lt;/big> Th.15-Mar-2018&lt;/b>
+		&lt;br/>* First public release of sample demo app at Google Play
+        &lt;br/>* Source code published at GitHub
         &lt;br/>
 		&lt;br/>&lt;b>&lt;big>v0.1.8:&lt;/big> We.14-Mar-2018&lt;/b>
 		&lt;br/>* First beta release
