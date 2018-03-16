@@ -10,7 +10,7 @@ import net.ej3.libs.aboutappdevlib.model.Faq;
  * @author E.J. Jiménez
  * @version 20180316
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused","SameParameterValue"})
 public class FaqBuilder {
 
     //--------------------------------------------------------------------------

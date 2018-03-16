@@ -21,6 +21,7 @@
     <string name="drawer_example_3">Without tabs</string>
     <string name="drawer_example_4">Custom colors</string>
     <string name="drawer_about">About</string>
+    <string name="drawer_faq">FAQ</string>
     <string name="drawer_license">License</string>
 
 
@@ -112,6 +113,17 @@
     <string name="about_lib_leak_canary_author">Square</string>
     <string name="about_lib_leak_canary_description">A memory leak detection library for Android and Java</string>
     <string name="about_lib_leak_canary_url">https://github.com/square/leakcanary</string>
+
+    <!-- FAQ -->
+    <string name="about_faq_title">Frequently Asked Questions</string>
+    <string name="about_faq_question_1">Is this screen built with AboutAppDevLib?</string>
+    <string name="about_faq_answer_1">Yes, this screen is built using <i>AboutFaqFragment.Builder</i> class. The answers have been created with <i>FaqCardView</i> widget</string>
+    <string name="about_faq_question_2">Is AboutAppDevLib open source?</string>
+    <string name="about_faq_answer_2">Yes, you can clone or download AboutAppDevLib source code from <a href='https://github.com/ej3dev/AboutAppDevLib'>https://github.com/ej3dev/AboutAppDevLib</a></string>
+    <string name="about_faq_question_3">What is the Answer to the Ultimate Question of Life, The Universe, and Everything?</string>
+    <string name="about_faq_answer_3">Forty two</string>
+    <string name="about_faq_question_4">What is the most popular text paragraph for designers?</string>
+    <string name="about_faq_answer_4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

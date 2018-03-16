@@ -7,14 +7,17 @@
 AboutAppDevLib
 ==============
 
-**AboutAppDevLib** is a library to build easily a fully featured &#34;About&#34; section for your app. With a few lines of code you can create a screens with info about you, your app and third party libraries used.
+**AboutAppDevLib** is a library to build easily a fully featured &#34;About&#34; screen for your app. With a few lines of code you can create a screens with info about you, your team, your app, third party libraries used or build a section with Frequently Asked Questions.
 
 ### Features
 
 * Easy to implement
 * Material design with tabs support
-* Include `Builder` classes to create screen with commons options
-* Include `ButtonFactory` class to generate buttons with commons actions 
+* Include `AboutAppFragment` class to create screen with app info like name, versión, changelog, thanks, repos, privacy info...
+* Include `AboutDevFragment` class to create screen with developers info: personal info, team members, others apps...
+* Include `AboutLibFragment` class to build a list with third party libraries used in the app
+* Include `AboutFaqFragment` class to easily build a Frequently Asked Questions (FAQ) screen
+* Include `ButtonFactory` class to generate buttons with commons actions: view URLs, location maps, launch apps, send emails, share app...
 * Open, flexible and extensible API
  
 ### Sample app
@@ -47,7 +50,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.ej3dev:AboutAppDevLib:v1.0.0'
+    implementation 'com.github.ej3dev:AboutAppDevLib:v1.1.0'
 }
 ```
 
@@ -98,8 +101,13 @@ public class BasicExampleActivity extends AppCompatActivity {
         //
         // Show "About Screen" in your layout
         //
-        getSupportFragmentManager().beginTransaction().replace(R.id.content,aboutFragment).commitAllowingStateLoss();
-        
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager().beginTransaction().replace(R.id.content,aboutFragment).commitAllowingStateLoss();
+            }
+        });
+
         // ...
         
     }
@@ -186,6 +194,19 @@ AboutLibFragment.Builder(@NonNull final Context ctx)
     .withInfo(@StringRes int infoRes);
     .withLibs(@Nullable String title,Lib... libs);
     .withLibs(@StringRes int titleRes,Lib... libs);
+```
+
+### AboutFaqFragment
+```java
+AboutLibFragment.Builder(@NonNull final Context ctx)
+    .withBackgroundColor(@ColorInt int backgroundColor);
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
+    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
+    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
+    .withInfo(@Nullable String info);
+    .withInfo(@StringRes int infoRes);
+    .withFaqs(@Nullable String title,Faq... faqs);
+    .withFaqs(@StringRes int titleRes,Faq... faqs);
 ```
 
 
@@ -298,6 +319,15 @@ LibBuilder(@NonNull final Context ctx,@StringRes final int nameRes)
     .withIcon(@DrawableRes final int iconRes);
     .withUrl(@Nullable final String url);
     .withUrl(@StringRes final int urlRes);
+```
+
+### Faq
+```java
+FaqBuilder(@NonNull final Context ctx,@NonNull final String question)
+FaqBuilder(@NonNull final Context ctx,@StringRes final int questionRes)
+    .withAnswer(@Nullable final String answer);
+    .withAnswer(@StringRes final int answerRes);
+    .isOpen(final boolean open);
 ```
 
 

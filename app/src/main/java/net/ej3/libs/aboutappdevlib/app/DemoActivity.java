@@ -31,12 +31,14 @@ import net.ej3.libs.aboutappdevlib.AboutTabsFragment;
 import net.ej3.libs.aboutappdevlib.util.AppBuilder;
 import net.ej3.libs.aboutappdevlib.util.ButtonFactory;
 import net.ej3.libs.aboutappdevlib.util.DevBuilder;
+import net.ej3.libs.aboutappdevlib.util.FaqBuilder;
 import net.ej3.libs.aboutappdevlib.util.LibBuilder;
 import net.ej3.libs.aboutappdevlib.util.Util;
+import net.ej3.libs.aboutappdevlib.view.AboutFaqFragment;
 
 /**
  * @author E.J. Jiménez
- * @version 20180315
+ * @version 20180316
  */
 public class DemoActivity extends AppCompatActivity {
 
@@ -49,7 +51,8 @@ public class DemoActivity extends AppCompatActivity {
     public static final int DRAWER_EXAMPLE_3 = 3;
     public static final int DRAWER_EXAMPLE_4 = 4;
     public static final int DRAWER_ABOUT     = 6;
-    public static final int DRAWER_LICENSE   = 7;
+    public static final int DRAWER_FAQ       = 7;
+    public static final int DRAWER_LICENSE   = 8;
 
     private static final int MENU_PRIVACY = 0;
     //endregion
@@ -132,6 +135,7 @@ public class DemoActivity extends AppCompatActivity {
                 new PrimaryDrawerItem().withIdentifier(DRAWER_EXAMPLE_4).withName(R.string.drawer_example_4).withIcon(GoogleMaterial.Icon.gmd_filter_4).withSelectable(false),
                 new DividerDrawerItem(),
                 new PrimaryDrawerItem().withIdentifier(DRAWER_ABOUT).withName(R.string.drawer_about).withIcon(GoogleMaterial.Icon.gmd_info).withSelectable(false),
+                new PrimaryDrawerItem().withIdentifier(DRAWER_FAQ).withName(R.string.drawer_faq).withIcon(GoogleMaterial.Icon.gmd_help).withSelectable(false),
                 new PrimaryDrawerItem().withIdentifier(DRAWER_LICENSE).withName(R.string.drawer_license).withIcon(GoogleMaterial.Icon.gmd_assignment).withSelectable(false)
             )
             .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -145,6 +149,7 @@ public class DemoActivity extends AppCompatActivity {
                         case DRAWER_EXAMPLE_3: show(buildWithoutTabsFragment()); break;
                         case DRAWER_EXAMPLE_4: show(buildCustomColorsFragment()); break;
                         case DRAWER_ABOUT: show(buildAboutFragment()); break;
+                        case DRAWER_FAQ: show(buildFaqFragment()); break;
                         case DRAWER_LICENSE: show(buildLicenseFragment()); break;
                     }
                     return false;
@@ -374,6 +379,21 @@ public class DemoActivity extends AppCompatActivity {
             .addPage(R.string.about_app_tab,appFragment)
             .addPage(R.string.about_dev_tab,devFragment)
             .addPage(R.string.about_lib_tab,libFragment)
+            .build();
+    }
+
+    Fragment buildFaqFragment() {
+        drawer.getDrawerLayout().setStatusBarBackground(R.color.md_blue_grey_700);
+        toolbar.setBackgroundResource(R.color.md_blue_grey_500);
+        toolbar.setTitle(R.string.drawer_faq);
+
+        return new AboutFaqFragment.Builder(this)
+            .withFaqs(R.string.about_faq_title,
+                new FaqBuilder(this,R.string.about_faq_question_1).withAnswer(R.string.about_faq_answer_1).isOpen(true).build(),
+                new FaqBuilder(this,R.string.about_faq_question_2).withAnswer(R.string.about_faq_answer_2).isOpen(true).build(),
+                new FaqBuilder(this,R.string.about_faq_question_3).withAnswer(R.string.about_faq_answer_3).build(),
+                new FaqBuilder(this,R.string.about_faq_question_4).withAnswer(R.string.about_faq_answer_4).build()
+            )
             .build();
     }
 

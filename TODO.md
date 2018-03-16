@@ -12,6 +12,6 @@
 - [ ] Add constructor (ctx,json) to AppBuilder, DevBuilder and LibBuilder classes
 
 ### Tu.6-Mar-2018
-- [ ] Add AboutFaqFragment
+- [x] Add AboutFaqFragment
 - [x] Add Faq POJO class
 - [x] Implement FaqCardView class

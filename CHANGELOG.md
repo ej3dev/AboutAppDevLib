@@ -3,7 +3,7 @@
 #
 
 ### Fr.16-Mar-2018
-* New: added support for frequently answer questions (FAQ)
+* New: added support for Frequently Asked Questions (FAQ)
 
 ### Th.15-Mar-2018
 * First public release of sample demo app at [Google Play](https://play.google.com/store/apps/details?id=net.ej3.libs.aboutappdevlib.app)

@@ -11,8 +11,8 @@
         <variable name="sectionTitleColor" type="int"/>
         <variable name="sectionDividerColor" type="int"/>
         <variable name="info" type="CharSequence"/>
-        <variable name="libsTitle" type="CharSequence"/>
-        <variable name="libsVisible" type="boolean"/>
+        <variable name="faqsTitle" type="CharSequence"/>
+        <variable name="faqsVisible" type="boolean"/>
     </data>
 
     <android.support.v4.widget.NestedScrollView
@@ -40,20 +40,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="@{libsVisible}">
+                android:visibility="@{faqsVisible}">
 
                 <ImageView
                     style="@style/about_section_divider"
-                    android:src="@{sectionDividerColor}"/>
+                    android:src="@{sectionDividerColor}"
+                    android:visibility="@{info}"/>
 
                 <TextView
                     style="@style/about_section_title"
                     android:textColor="@{sectionTitleColor}"
-                    android:text="@{libsTitle}"
-                    android:visibility="@{libsTitle}"/>
+                    android:text="@{faqsTitle}"
+                    android:visibility="@{faqsTitle}"/>
 
                 <LinearLayout
-                    android:id="@+id/lay_libs"
+                    android:id="@+id/lay_faqs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="8dp"
