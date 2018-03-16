@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+        <variable name="background" type="int"/>
+        <variable name="primaryTextColor" type="int"/>
+        <variable name="secondaryTextColor" type="int"/>
+        <variable name="sectionTitleColor" type="int"/>
+        <variable name="sectionDividerColor" type="int"/>
+        <variable name="info" type="CharSequence"/>
+        <variable name="libsTitle" type="CharSequence"/>
+        <variable name="libsVisible" type="boolean"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:orientation="vertical"
+            android:background="@{background}">
+
+            <!-- Info  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <TextView
+                style="@style/about_text_small"
+                android:layout_marginTop="8dp"
+                android:textColor="@{secondaryTextColor}"
+                android:text="@{info}"
+                android:visibility="@{info}"/>
+
+            <!-- Libs  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{libsVisible}">
+
+                <ImageView
+                    style="@style/about_section_divider"
+                    android:src="@{sectionDividerColor}"/>
+
+                <TextView
+                    style="@style/about_section_title"
+                    android:textColor="@{sectionTitleColor}"
+                    android:text="@{libsTitle}"
+                    android:visibility="@{libsTitle}"/>
+
+                <LinearLayout
+                    android:id="@+id/lay_libs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:orientation="vertical"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

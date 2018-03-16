@@ -24,7 +24,7 @@ allprojects {
 ext {
     applicationId = 'net.ej3.libs.aboutappdevlib.app'
     versionCode = 20180316
-    versionName = '1.0.1'
+    versionName = '1.0.2'
     minSdkVersion = 21
     compileSdkVersion = 27
     targetSdkVersion = 27
