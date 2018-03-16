@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription,RtlHardcoded">
+
+    <data>
+        <variable name="faq" type="net.ej3.libs.aboutappdevlib.model.Faq"/>
+        <variable name="primaryTextColor" type="int"/>
+        <variable name="secondaryTextColor" type="int"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                android:textColor="@{primaryTextColor}"
+                android:text="@{faq.question}"/>
+
+            <ImageView
+                android:id="@+id/img_toggle"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:alpha="0.38"
+                android:src="@drawable/ic_expand_more_black_24dp"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/lay_expandable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{faq.open}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
+                android:textColor="@{secondaryTextColor}"
+                android:text="@{faq.answer}"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

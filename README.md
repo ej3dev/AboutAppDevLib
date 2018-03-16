@@ -47,7 +47,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'net.ej3.libs.aboutappdevlib:AboutAppDevLib:1.0.0'
+    implementation 'com.github.ej3dev:AboutAppDevLib:v1.0.0'
 }
 ```
 

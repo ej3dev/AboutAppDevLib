@@ -1,11 +1,10 @@
 package net.ej3.libs.aboutappdevlib.model;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 /**
  * @author E.J. Jiménez
- * @version 20180308
+ * @version 20180315
  */
 @SuppressWarnings({"unused","WeakerAccess"})
 public class Faq {
@@ -15,17 +14,17 @@ public class Faq {
     //
     protected String question;
     protected String answer;
-    protected String url;
+    protected boolean open;
     //endregion
 
 
     //--------------------------------------------------------------------------
     //region Constructor
     //
-    public Faq(@NonNull String question,@NonNull String answer,@Nullable String url) {
+    public Faq(@NonNull String question,@NonNull String answer,boolean isOpen) {
         this.question = question;
         this.answer = answer;
-        this.url = url;
+        this.open = isOpen;
     }
     //endregion
 
@@ -41,8 +40,8 @@ public class Faq {
         return answer;
     }
 
-    public String getUrl() {
-        return url;
+    public boolean isOpen() {
+        return open;
     }
     //endregion
 
