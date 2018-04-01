@@ -56,7 +56,16 @@
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v1.0.0:&lt;/big> Th.15-Mar-2018&lt;/b>
+		&lt;b>&lt;big>v1.1.2:&lt;/big> Su.1-Apr-2018&lt;/b>
+		&lt;br/>* Updated third party libraries
+        &lt;br/>* Changed ImageViews for Views in layout dividers
+        &lt;br/>* Added screenshots to README file
+        &lt;br/>* Fixed minor bugs
+        &lt;br/>
+        &lt;br/>&lt;b>&lt;big>v1.1.0:&lt;/big> Fr.16-Mar-2018&lt;/b>
+		&lt;br/>* Added support for Frequently Asked Questions (FAQ)
+        &lt;br/>
+        &lt;br/>&lt;b>&lt;big>v1.0.0:&lt;/big> Th.15-Mar-2018&lt;/b>
 		&lt;br/>* First public release of sample demo app at Google Play
         &lt;br/>* Source code published at GitHub
         &lt;br/>
@@ -66,7 +75,7 @@
 
     <!-- Dev -->
     <string name="about_dev_tab">Dev</string>
-    <string name="about_dev_author">Emilio José Jiménez Jiménez</string>
+    <string name="about_dev_author">E.J. Jiménez</string>
     <string name="about_dev_info">Salamanca, Spain</string>
     <string name="about_dev_web">https://github.com/ej3dev</string>
     <string name="about_dev_github">ej3dev</string>

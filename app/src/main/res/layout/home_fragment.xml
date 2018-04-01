@@ -42,28 +42,28 @@
 
             </RelativeLayout>
 
-            <ImageView style="@style/home_divider"/>
+            <View style="@style/home_divider"/>
 
             <LinearLayout style="@style/home_container" android:id="@+id/lay_home_1">
                 <TextView style="@style/home_title" android:text="@string/home_example_1_title"/>
                 <TextView style="@style/home_description" android:text="@string/home_example_1_description"/>
             </LinearLayout>
 
-            <ImageView style="@style/home_divider"/>
+            <View style="@style/home_divider"/>
 
             <LinearLayout style="@style/home_container" android:id="@+id/lay_home_2">
                 <TextView style="@style/home_title" android:text="@string/home_example_2_title"/>
                 <TextView style="@style/home_description" android:text="@string/home_example_2_description"/>
             </LinearLayout>
 
-            <ImageView style="@style/home_divider"/>
+            <View style="@style/home_divider"/>
 
             <LinearLayout style="@style/home_container" android:id="@+id/lay_home_3">
                 <TextView style="@style/home_title" android:text="@string/home_example_3_title"/>
                 <TextView style="@style/home_description" android:text="@string/home_example_3_description"/>
             </LinearLayout>
 
-            <ImageView style="@style/home_divider"/>
+            <View style="@style/home_divider"/>
 
             <LinearLayout style="@style/home_container" android:id="@+id/lay_home_4">
                 <TextView style="@style/home_title" android:text="@string/home_example_4_title"/>

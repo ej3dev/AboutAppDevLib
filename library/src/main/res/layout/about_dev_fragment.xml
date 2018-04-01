@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:lib="http://schemas.android.com/apk/res/android"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
     tools:ignore="ContentDescription">
 
     <data>
@@ -72,9 +72,9 @@
                 android:orientation="vertical"
                 android:visibility="@{devsVisible}">
 
-                <ImageView
+                <View
                     style="@style/about_section_divider"
-                    android:src="@{sectionDividerColor}"/>
+                    android:background="@{sectionDividerColor}"/>
 
                 <TextView
                     style="@style/about_section_title"
@@ -99,9 +99,9 @@
                 android:orientation="vertical"
                 android:visibility="@{appsVisible}">
 
-                <ImageView
+                <View
                     style="@style/about_section_divider"
-                    android:src="@{sectionDividerColor}"/>
+                    android:background="@{sectionDividerColor}"/>
 
                 <TextView
                     style="@style/about_section_title"

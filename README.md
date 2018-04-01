@@ -25,6 +25,12 @@ AboutAppDevLib
 Take a look to the sample app to see a working example of the possibilities of **AboutAppDevLib** library:
 <br><a href="https://play.google.com/store/apps/details?id=net.ej3.libs.aboutappdevlib.app"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png" height="60" /></a>
 
+### Screenshots
+
+<img align="right" src="https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutAppFragment_01_400x658.jpg"/>
+&nbsp;
+<img align="right" src="https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutDevFragment_01_400x658.jpg"/>
+
 
 Setup
 -----

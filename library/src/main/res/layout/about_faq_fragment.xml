@@ -42,9 +42,9 @@
                 android:orientation="vertical"
                 android:visibility="@{faqsVisible}">
 
-                <ImageView
+                <View
                     style="@style/about_section_divider"
-                    android:src="@{sectionDividerColor}"
+                    android:background="@{sectionDividerColor}"
                     android:visibility="@{info}"/>
 
                 <TextView
