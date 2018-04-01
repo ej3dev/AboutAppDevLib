@@ -21,11 +21,9 @@ import android.widget.LinearLayout;
 import net.ej3.libs.aboutappdevlib.databinding.AboutDevFragmentBinding;
 import net.ej3.libs.aboutappdevlib.model.App;
 import net.ej3.libs.aboutappdevlib.model.Dev;
-import net.ej3.libs.aboutappdevlib.model.Faq;
 import net.ej3.libs.aboutappdevlib.util.Util;
 import net.ej3.libs.aboutappdevlib.view.AppCardView;
 import net.ej3.libs.aboutappdevlib.view.DevCardView;
-import net.ej3.libs.aboutappdevlib.view.FaqCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -280,16 +278,6 @@ public class AboutDevFragment extends Fragment {
         layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         binding.layApps.removeAllViews();
-
-        FaqCardView faqCardView = new FaqCardView(ctx);
-        faqCardView.setFaq(new Faq("What is the Number of the Beast?","666",true));
-        binding.layApps.addView(faqCardView,layoutParams);
-
-        FaqCardView faqCardView2 = new FaqCardView(ctx);
-        faqCardView2.setFaq(new Faq("Cómo empieza el clásico libro de caballerias Don Quijote de la Mancha?","En un lugar de la Mancha de cuyo nombre no quiero acordarme no hace mucho tiempo...",false));
-        binding.layApps.addView(faqCardView2,layoutParams);
-
-
         for(App d : apps) {
             AppCardView appCardView = new AppCardView(ctx);
             appCardView.setApp(d);

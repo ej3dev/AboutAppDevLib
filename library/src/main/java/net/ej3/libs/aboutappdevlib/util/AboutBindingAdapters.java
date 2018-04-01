@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 /**
  * @author E.J. Jiménez
- * @version 20180310
+ * @version 20180401
  */
 @SuppressWarnings("unused")
 public class AboutBindingAdapters {
@@ -38,7 +38,7 @@ public class AboutBindingAdapters {
 
     @BindingAdapter("android:visibility")
     public static void setVisibility(@NonNull View view,@DrawableRes int resource) {
-        int visibility = (resource <= 0 ? View.GONE : View.VISIBLE);
+        int visibility = (resource == 0 ? View.GONE : View.VISIBLE);
         view.setVisibility(visibility);
     }
 
@@ -60,7 +60,7 @@ public class AboutBindingAdapters {
 
     @BindingAdapter("lib:src")
     public static void setImageResource(ImageView imageView,@DrawableRes int resource){
-        if( resource > 0 ) imageView.setImageResource(resource);
+        if( resource != 0 ) imageView.setImageResource(resource);
     }
     //endregion
 
