@@ -5,8 +5,12 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.text.Html;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * @author E.J. Jiménez
@@ -54,13 +58,32 @@ public class AboutBindingAdapters {
     //region ImageView
     //
     @BindingAdapter("lib:src")
-    public static void setImageResource(ImageView imageView,Drawable drawable){
+    public static void setImageDrawable(ImageView imageView,Drawable drawable){
         if( drawable != null ) imageView.setImageDrawable(drawable);
     }
 
     @BindingAdapter("lib:src")
     public static void setImageResource(ImageView imageView,@DrawableRes int resource){
         if( resource != 0 ) imageView.setImageResource(resource);
+    }
+    //endregion
+
+
+    //--------------------------------------------------------------------------
+    //region TextView
+    //
+    @BindingAdapter("lib:htmlText")
+    public static void setHtmlText(TextView textView,@Nullable String text) {
+        if( text == null || TextUtils.isEmpty(text) ) return;
+        textView.setText(Html.fromHtml(text));
+    }
+
+    @BindingAdapter("lib:htmlText")
+    public static void setHtmlText(TextView textView,@StringRes int resource) {
+        if( resource == 0 ) return;
+        final CharSequence text = textView.getContext().getText(resource);
+        if( text == null || TextUtils.isEmpty(text) ) return;
+        textView.setText(text);
     }
     //endregion
 

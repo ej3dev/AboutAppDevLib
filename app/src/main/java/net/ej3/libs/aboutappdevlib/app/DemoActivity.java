@@ -26,6 +26,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import net.ej3.libs.aboutappdevlib.AboutAppFragment;
 import net.ej3.libs.aboutappdevlib.AboutDevFragment;
+import net.ej3.libs.aboutappdevlib.AboutFaqFragment;
 import net.ej3.libs.aboutappdevlib.AboutLibFragment;
 import net.ej3.libs.aboutappdevlib.AboutTabsFragment;
 import net.ej3.libs.aboutappdevlib.util.AppBuilder;
@@ -34,7 +35,6 @@ import net.ej3.libs.aboutappdevlib.util.DevBuilder;
 import net.ej3.libs.aboutappdevlib.util.FaqBuilder;
 import net.ej3.libs.aboutappdevlib.util.LibBuilder;
 import net.ej3.libs.aboutappdevlib.util.Util;
-import net.ej3.libs.aboutappdevlib.view.AboutFaqFragment;
 
 /**
  * @author E.J. Jiménez

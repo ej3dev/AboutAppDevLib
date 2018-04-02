@@ -2,7 +2,8 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="ContentDescription,RtlHardcoded">
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ContentDescription,RtlHardcoded,UseCompoundDrawables">
 
     <data>
         <variable name="faq" type="net.ej3.libs.aboutappdevlib.model.Faq"/>
@@ -27,7 +28,7 @@
                 android:layout_weight="1"
                 android:textAppearance="@android:style/TextAppearance.Material.Small"
                 android:textColor="@{primaryTextColor}"
-                android:text="@{faq.question}"/>
+                lib:htmlText="@{faq.question}"/>
 
             <ImageView
                 android:id="@+id/img_toggle"
@@ -49,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@android:style/TextAppearance.Material.Small"
                 android:textColor="@{secondaryTextColor}"
-                android:text="@{faq.answer}"/>
+                lib:htmlText="@{faq.answer}"/>
 
         </FrameLayout>
 

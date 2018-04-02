@@ -2,6 +2,9 @@
 # AboutAppDevLib CHANGELOG
 #
 
+### v1.1.3: Xx.y-Zzz-2018
+* Fixed minor bugs
+
 ### v1.1.2: Su.1-Apr-2018
 * Updated third party libraries
 * Changed ImageViews for Views in layout dividers

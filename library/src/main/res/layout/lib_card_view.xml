@@ -46,7 +46,7 @@
                     android:ellipsize="end"
                     android:textAppearance="@android:style/TextAppearance.Material.Subhead"
                     android:textColor="@{primaryTextColor}"
-                    android:text="@{lib.name}"/>
+                    lib:htmlText="@{lib.name}"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:ellipsize="end"
                     android:textAppearance="@android:style/TextAppearance.Material.Small"
                     android:textColor="@{secondaryTextColor}"
-                    android:text="@{lib.author}"
+                    lib:htmlText="@{lib.author}"
                     android:visibility="@{lib.author}"/>
 
             </LinearLayout>
@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{lib.description}"
+            lib:htmlText="@{lib.description}"
             android:textColor="@{secondaryTextColor}"
             android:visibility="@{lib.description}"/>
 

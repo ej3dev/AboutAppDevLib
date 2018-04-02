@@ -37,14 +37,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@android:style/TextAppearance.Material.Subhead"
                 android:textColor="@{primaryTextColor}"
-                android:text="@{app.name}"/>
+                lib:htmlText="@{app.name}"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@android:style/TextAppearance.Material.Small"
                 android:textColor="@{secondaryTextColor}"
-                android:text="@{app.description}"
+                lib:htmlText="@{app.description}"
                 android:visibility="@{app.description}"/>
 
         </LinearLayout>

@@ -1,4 +1,4 @@
-package net.ej3.libs.aboutappdevlib.view;
+package net.ej3.libs.aboutappdevlib;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -16,10 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import net.ej3.libs.aboutappdevlib.R;
 import net.ej3.libs.aboutappdevlib.databinding.AboutFaqFragmentBinding;
 import net.ej3.libs.aboutappdevlib.model.Faq;
 import net.ej3.libs.aboutappdevlib.util.Util;
+import net.ej3.libs.aboutappdevlib.view.FaqCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,8 @@ public class AboutFaqFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Constants
     //
-    @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
+    @ColorInt
+    protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
     @ColorInt protected static final int DEFAULT_SECTION_TITLE_COLOR   = 0xff546e7a;
@@ -52,7 +53,8 @@ public class AboutFaqFragment extends Fragment {
     @ColorInt private int sectionTitleColor;
     @ColorInt private int sectionDividerColor;
 
-    @Nullable private String info;
+    @Nullable
+    private String info;
     @Nullable private String faqsTitle;
     //endregion
 
@@ -84,17 +86,17 @@ public class AboutFaqFragment extends Fragment {
             this.ctx = ctx;
         }
 
-        public Builder withBackgroundColor(@ColorInt int backgroundColor) {
+        public AboutFaqFragment.Builder withBackgroundColor(@ColorInt int backgroundColor) {
             mBackground = backgroundColor;
             return this;
         }
 
-        public Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
+        public AboutFaqFragment.Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
             mBackground = ContextCompat.getColor(ctx,backgroundColorRes);
             return this;
         }
 
-        public Builder withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor) {
+        public AboutFaqFragment.Builder withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor) {
             mPrimaryTextColor = primaryColor;
             mSecondaryTextColor = secondaryColor;
             mSectionTitleColor = sectionColor;
@@ -102,7 +104,7 @@ public class AboutFaqFragment extends Fragment {
             return this;
         }
 
-        public Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
+        public AboutFaqFragment.Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
             mPrimaryTextColor = ContextCompat.getColor(ctx,primaryColor);
             mSecondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
             mSectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
@@ -110,23 +112,23 @@ public class AboutFaqFragment extends Fragment {
             return this;
         }
 
-        public Builder withInfo(@Nullable String info) {
+        public AboutFaqFragment.Builder withInfo(@Nullable String info) {
             mInfo = info;
             return this;
         }
 
-        public Builder withInfo(@StringRes int infoRes) {
+        public AboutFaqFragment.Builder withInfo(@StringRes int infoRes) {
             mInfo = ctx.getString(infoRes);
             return this;
         }
 
-        public Builder withFaqs(@Nullable String title,Faq... faqs) {
+        public AboutFaqFragment.Builder withFaqs(@Nullable String title,Faq... faqs) {
             mFaqsTitle = title;
             mFaqs.addAll(Arrays.asList(faqs));
             return this;
         }
 
-        public Builder withFaqs(@StringRes int titleRes,Faq... faqs) {
+        public AboutFaqFragment.Builder withFaqs(@StringRes int titleRes,Faq... faqs) {
             mFaqsTitle = ctx.getString(titleRes);
             mFaqs.addAll(Arrays.asList(faqs));
             return this;

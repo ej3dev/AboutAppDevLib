@@ -9,7 +9,7 @@ android {
         versionName rootProject.ext.versionName
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        setProperty("archivesBaseName","BaseMVVM_v"+versionName+"_"+versionCode)
+        setProperty("archivesBaseName","AboutAppDevLib_v"+versionName+"_"+versionCode)
     }
 
     buildTypes {

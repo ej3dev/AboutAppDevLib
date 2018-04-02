@@ -188,7 +188,7 @@ public class AboutLibFragment extends Fragment {
         binding.layLibs.removeAllViews();
         for(Lib l : libs) {
             LibCardView libCardView = new LibCardView(ctx);
-            libCardView.setApp(l);
+            libCardView.setLib(l);
             binding.layLibs.addView(libCardView,layoutParams);
         }
     }

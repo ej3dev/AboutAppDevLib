@@ -65,7 +65,7 @@ public class LibCardView extends CardView {
         setDividerColor(DEFAULT_DIVIDER_COLOR);
     }
 
-    public void setApp(final Lib lib) {
+    public void setLib(final Lib lib) {
         binding.setLib(lib);
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override

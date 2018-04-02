@@ -105,7 +105,7 @@
 
     <string name="about_lib_aboutappdevlib_name">AboutAppDevLib</string>
     <string name="about_lib_aboutappdevlib_author">E.J. Jiménez</string>
-    <string name="about_lib_aboutappdevlib_description">An easy to use library to build About screens for your apps</string>
+    <string name="about_lib_aboutappdevlib_description">An easy to use library to build &lt;i>About screens&lt;/i> for your apps</string>
     <string name="about_lib_aboutappdevlib_url">https://github.com/ej3dev/AboutAppDevLib</string>
 
     <string name="about_lib_material_drawer_name">MaterialDrawer</string>
@@ -125,10 +125,10 @@
 
     <!-- FAQ -->
     <string name="about_faq_title">Frequently Asked Questions</string>
-    <string name="about_faq_question_1">Is this screen built with AboutAppDevLib?</string>
-    <string name="about_faq_answer_1">Yes, this screen is built using <i>AboutFaqFragment.Builder</i> class. The answers have been created with <i>FaqCardView</i> widget</string>
-    <string name="about_faq_question_2">Is AboutAppDevLib open source?</string>
-    <string name="about_faq_answer_2">Yes, you can clone or download AboutAppDevLib source code from <a href='https://github.com/ej3dev/AboutAppDevLib'>https://github.com/ej3dev/AboutAppDevLib</a></string>
+    <string name="about_faq_question_1">Is this screen built with &lt;b>AboutAppDevLib&lt;/b>?</string>
+    <string name="about_faq_answer_1">Yes, this screen is built using &lt;i>AboutFaqFragment.Builder&lt;/i> class. The answers have been created with &lt;i>FaqCardView&lt;/i> widget</string>
+    <string name="about_faq_question_2">Is &lt;b>AboutAppDevLib&lt;/b> open source?</string>
+    <string name="about_faq_answer_2">Yes, you can clone or download &lt;b>AboutAppDevLib&lt;/b> source code from &lt;a href="https://github.com/ej3dev/AboutAppDevLib">https://github.com/ej3dev/AboutAppDevLib&lt;/a></string>
     <string name="about_faq_question_3">What is the Answer to the Ultimate Question of Life, The Universe, and Everything?</string>
     <string name="about_faq_answer_3">Forty two</string>
     <string name="about_faq_question_4">What is the most popular text paragraph for designers?</string>

@@ -23,8 +23,8 @@ allprojects {
 // This block encapsulates custom properties and makes them available to all modules in the project.
 ext {
     applicationId = 'net.ej3.libs.aboutappdevlib.app'
-    versionCode = 20180401
-    versionName = '1.1.2'
+    versionCode = 20180402
+    versionName = '1.1.3'
     minSdkVersion = 21
     compileSdkVersion = 27
     targetSdkVersion = 27
