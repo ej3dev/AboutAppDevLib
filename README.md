@@ -27,9 +27,9 @@ Take a look to the sample app to see a working example of the possibilities of *
 
 ### Screenshots
 
-<img align="right" src="https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutAppFragment_01_400x658.jpg"/>
+![AboutAppFragment](https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutAppFragment_01_400x658.jpg)
 &nbsp;
-<img align="right" src="https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutDevFragment_01_400x658.jpg"/>
+![AboutDevFragment](https://raw.githubusercontent.com/ej3dev/AboutAppDevLib/master/art/AboutDevFragment_01_400x658.jpg)
 
 
 Setup
@@ -56,7 +56,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.ej3dev:AboutAppDevLib:v1.1.0'
+    implementation 'com.github.ej3dev:AboutAppDevLib:v1.1.2'
 }
 ```
 

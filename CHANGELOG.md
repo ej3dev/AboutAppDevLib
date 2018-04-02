@@ -2,12 +2,18 @@
 # AboutAppDevLib CHANGELOG
 #
 
-### Fr.16-Mar-2018
-* New: added support for Frequently Asked Questions (FAQ)
+### v1.1.2: Su.1-Apr-2018
+* Updated third party libraries
+* Changed ImageViews for Views in layout dividers
+* Added screenshots to README file
+* Fixed minor bugs
 
-### Th.15-Mar-2018
+### v1.1.0: Fr.16-Mar-2018
+* Added support for Frequently Asked Questions (FAQ)
+
+### v1.0.0: Th.15-Mar-2018
 * First public release of sample demo app at [Google Play](https://play.google.com/store/apps/details?id=net.ej3.libs.aboutappdevlib.app)
 * Source code published at [GitHub](https://github.com/ej3dev/AboutAppDevLib)
 
-### We.14-Mar-2018
+### v0.1.8: We.14-Mar-2018
 * First beta release
