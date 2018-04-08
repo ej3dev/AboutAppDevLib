@@ -2,7 +2,8 @@
 # AboutAppDevLib CHANGELOG
 #
 
-### v1.1.3: Xx.y-Zzz-2018
+### v1.1.4: Tu.3-Apr-2018
+* Added support for HTML in custom CardView widgets
 * Fixed minor bugs
 
 ### v1.1.2: Su.1-Apr-2018

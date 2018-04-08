@@ -33,7 +33,7 @@ public class ButtonFactory {
     public static Button customButton(@NonNull final Context ctx,@DrawableRes final int icon,@NonNull final String label,final View.OnClickListener onClick) {
         Button output = new Button(ctx);
         output.setText(label);
-        if( icon > 0 ) {
+        if( icon != 0 ) {
             output.setCompoundDrawablesWithIntrinsicBounds(icon,0,0,0);
             output.setCompoundDrawablePadding((int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,4,ctx.getResources().getDisplayMetrics()));
         }
@@ -441,6 +441,26 @@ public class ButtonFactory {
     @NonNull
     public static Button openPlayStoreAppsList(@NonNull final Context ctx,@StringRes final int appRes) {
         return openPlayStoreAppsList(ctx,ctx.getString(appRes));
+    }
+
+    @NonNull
+    public static Button rateThisApp(@NonNull final Context ctx,@NonNull final String app) {
+        return customButton(ctx,R.drawable.ic_star_black_24dp,R.string.btn_rate,new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = Util.newIntent(K.PLAY_STORE_APP_URI,app);
+                if( Util.resolveActivity(ctx,intent) ) {
+                    Util.open(ctx,intent);
+                } else {
+                    Util.open(ctx,Util.newIntent(K.PLAY_STORE_APP_WEB_URL,app));
+                }
+            }
+        });
+    }
+
+    @NonNull
+    public static Button rateThisApp(@NonNull final Context ctx,@StringRes final int appRes) {
+        return rateThisApp(ctx,ctx.getString(appRes));
     }
     //endregion
 

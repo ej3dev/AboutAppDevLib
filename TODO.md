@@ -2,6 +2,10 @@
 # AboutAppDevLib TODO
 #
 
+### Mo.2-Apr-2018
+- [ ] Add support for toolbar menu options
+- [ ] LibRepository: repository with third party libraries data and mechanist to download and cache library icon
+
 ### Tu.13-Mar-2018
 - [x] AboutFragment: add tab-less support
 

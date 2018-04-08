@@ -56,7 +56,11 @@
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v1.1.2:&lt;/big> Su.1-Apr-2018&lt;/b>
+		&lt;b>&lt;big>v1.1.4:&lt;/big> Tu.3-Apr-2018&lt;/b>
+        &lt;br/>* Added support for HTML in custom CardView widgets
+        &lt;br/>* Fixed minor bugs
+        &lt;br/>
+        &lt;br/>&lt;b>&lt;big>v1.1.2:&lt;/big> Su.1-Apr-2018&lt;/b>
 		&lt;br/>* Updated third party libraries
         &lt;br/>* Changed ImageViews for Views in layout dividers
         &lt;br/>* Added screenshots to README file
