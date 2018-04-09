@@ -38,7 +38,7 @@ import net.ej3.libs.aboutappdevlib.util.Util;
 
 /**
  * @author E.J. Jiménez
- * @version 20180316
+ * @version 20180409
  */
 public class DemoActivity extends AppCompatActivity {
 
@@ -343,7 +343,7 @@ public class DemoActivity extends AppCompatActivity {
             .withActions(
                 ButtonFactory.shareThisApp(this,R.string.about_app_share_subject,R.string.about_app_share_message),
                 ButtonFactory.openGithub(this,R.string.about_app_github),
-                ButtonFactory.openPlayStoreAppPage(this,BuildConfig.APPLICATION_ID)
+                ButtonFactory.rateThisApp(this,BuildConfig.APPLICATION_ID)
             )
             .build();
 
