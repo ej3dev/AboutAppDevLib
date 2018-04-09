@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180314
+ * @version 20180409
  */
 @SuppressWarnings("unused")
 public class AboutAppFragment extends Fragment {
