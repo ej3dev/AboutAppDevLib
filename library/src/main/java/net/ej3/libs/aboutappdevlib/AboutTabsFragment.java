@@ -1,6 +1,5 @@
 package net.ej3.libs.aboutappdevlib;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +22,6 @@ import com.orhanobut.logger.Logger;
 import net.ej3.libs.aboutappdevlib.databinding.AboutTabsFragmentBinding;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,8 +41,7 @@ public class AboutTabsFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    @SuppressLint("UseSparseArrays")
-    private static final HashMap<Integer,Config> store = new HashMap<>();
+    private static final SparseArray<Config> store = new SparseArray<>();
     private Config config;
     //endregion
 
@@ -68,7 +66,7 @@ public class AboutTabsFragment extends Fragment {
         }
 
         public Builder withId(int id) {
-            mConfig.id = id;
+            mConfig.id = (id == Integer.MIN_VALUE ? id+1 : id);
             return this;
         }
 
@@ -137,9 +135,9 @@ public class AboutTabsFragment extends Fragment {
 
         public AboutTabsFragment build() {
             AboutTabsFragment aboutTabsFragment = new AboutTabsFragment();
-            if( mConfig.id == null ) mConfig.id = aboutTabsFragment.hashCode();
+            if( mConfig.id == Integer.MIN_VALUE ) mConfig.id = aboutTabsFragment.hashCode();
             store.put(mConfig.id,mConfig);
-            Bundle b = new Bundle();
+            final Bundle b = new Bundle();
             b.putInt(ARGUMENT_ID,mConfig.id);
             aboutTabsFragment.setArguments(b);
             return aboutTabsFragment;
@@ -225,7 +223,7 @@ public class AboutTabsFragment extends Fragment {
     //region Config data
     //
     private static final class Config {
-        Integer id;
+        int id = Integer.MIN_VALUE;
         int tabsMode = TabLayout.MODE_FIXED;
         @ColorInt int tabsBackgroundColor = 0xff607d8b;
         @ColorInt int tabsNormalColor = 0x99ffffff;
