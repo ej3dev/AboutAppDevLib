@@ -10,11 +10,14 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import com.orhanobut.logger.Logger;
 
 import net.ej3.libs.aboutappdevlib.databinding.AboutLibFragmentBinding;
 import net.ej3.libs.aboutappdevlib.model.Lib;
@@ -27,7 +30,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180314
+ * @version 20180410
  */
 @SuppressWarnings({"unused","SameParameterValue"})
 public class AboutLibFragment extends Fragment {
@@ -35,6 +38,7 @@ public class AboutLibFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Constants
     //
+    private static final String ARGUMENT_ID = "argument_id";
     @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
@@ -46,14 +50,8 @@ public class AboutLibFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    @ColorInt private int background;
-    @ColorInt private int primaryTextColor;
-    @ColorInt private int secondaryTextColor;
-    @ColorInt private int sectionTitleColor;
-    @ColorInt private int sectionDividerColor;
-
-    @Nullable private String info;
-    @Nullable private String libsTitle;
+    private static final SparseArray<Config> store = new SparseArray<>();
+    private Config config;
     //endregion
 
 
@@ -61,7 +59,6 @@ public class AboutLibFragment extends Fragment {
     //region Components
     //
     private AboutLibFragmentBinding binding;
-    private List<Lib> libs;
     //endregion
 
 
@@ -70,80 +67,73 @@ public class AboutLibFragment extends Fragment {
     //
     public static final class Builder {
         Context ctx;
-        @ColorInt int mBackground          = DEFAULT_BACKGROUND_COLOR;
-        @ColorInt int mPrimaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
-        @ColorInt int mSecondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
-        @ColorInt int mSectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
-        @ColorInt int mSectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
-
-        @Nullable String mInfo;
-        @Nullable String mLibsTitle;
-        List<Lib> mLibs = new ArrayList<>();
+        Config mConfig;
 
         public Builder(@NonNull final Context ctx) {
             this.ctx = ctx;
+            mConfig = new Config();
+        }
+
+        public Builder withId(int id) {
+            mConfig.id = (id == Integer.MIN_VALUE ? id+1 : id);
+            return this;
         }
 
         public Builder withBackgroundColor(@ColorInt int backgroundColor) {
-            mBackground = backgroundColor;
+            mConfig.background = backgroundColor;
             return this;
         }
 
         public Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
-            mBackground = ContextCompat.getColor(ctx,backgroundColorRes);
+            mConfig.background = ContextCompat.getColor(ctx,backgroundColorRes);
             return this;
         }
 
         public Builder withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor) {
-            mPrimaryTextColor = primaryColor;
-            mSecondaryTextColor = secondaryColor;
-            mSectionTitleColor = sectionColor;
-            mSectionDividerColor = (0x22000000 | (sectionColor & 0xffffff));
+            mConfig.primaryTextColor = primaryColor;
+            mConfig.secondaryTextColor = secondaryColor;
+            mConfig.sectionTitleColor = sectionColor;
+            mConfig.sectionDividerColor = (0x22000000 | (sectionColor & 0xffffff));
             return this;
         }
 
         public Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
-            mPrimaryTextColor = ContextCompat.getColor(ctx,primaryColor);
-            mSecondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
-            mSectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
-            mSectionDividerColor = (0x22000000 | (mSectionTitleColor & 0xffffff));
+            mConfig.primaryTextColor = ContextCompat.getColor(ctx,primaryColor);
+            mConfig.secondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
+            mConfig.sectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
+            mConfig.sectionDividerColor = (0x22000000 | (mConfig.sectionTitleColor & 0xffffff));
             return this;
         }
 
         public Builder withInfo(@Nullable String info) {
-            mInfo = info;
+            mConfig.info = info;
             return this;
         }
 
         public Builder withInfo(@StringRes int infoRes) {
-            mInfo = ctx.getString(infoRes);
+            mConfig.info = ctx.getString(infoRes);
             return this;
         }
 
         public Builder withLibs(@Nullable String title,Lib... libs) {
-            mLibsTitle = title;
-            mLibs.addAll(Arrays.asList(libs));
+            mConfig.libsTitle = title;
+            mConfig.libs.addAll(Arrays.asList(libs));
             return this;
         }
 
         public Builder withLibs(@StringRes int titleRes,Lib... libs) {
-            mLibsTitle = ctx.getString(titleRes);
-            mLibs.addAll(Arrays.asList(libs));
+            mConfig.libsTitle = ctx.getString(titleRes);
+            mConfig.libs.addAll(Arrays.asList(libs));
             return this;
         }
 
         public AboutLibFragment build() {
             AboutLibFragment aboutLibFragment = new AboutLibFragment();
-            aboutLibFragment.background = mBackground;
-            aboutLibFragment.primaryTextColor = mPrimaryTextColor;
-            aboutLibFragment.secondaryTextColor = mSecondaryTextColor;
-            aboutLibFragment.sectionTitleColor = mSectionTitleColor;
-            aboutLibFragment.sectionDividerColor = mSectionDividerColor;
-
-            aboutLibFragment.info = mInfo;
-            aboutLibFragment.libsTitle = mLibsTitle;
-            aboutLibFragment.libs = mLibs;
-
+            if( mConfig.id == Integer.MIN_VALUE ) mConfig.id = aboutLibFragment.hashCode();
+            store.put(mConfig.id,mConfig);
+            final Bundle b = new Bundle();
+            b.putInt(ARGUMENT_ID,mConfig.id);
+            aboutLibFragment.setArguments(b);
             return aboutLibFragment;
         }
     }
@@ -167,16 +157,33 @@ public class AboutLibFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Utils
     //
-    private void setData() {
-        binding.setBackground(background);
-        binding.setPrimaryTextColor(primaryTextColor);
-        binding.setSecondaryTextColor(secondaryTextColor);
-        binding.setSectionTitleColor(sectionTitleColor);
-        binding.setSectionDividerColor(sectionDividerColor);
+    @Nullable
+    private Config getConfig() {
+        final Bundle b = getArguments();
+        if( b == null ) {
+            Logger.e("Error: No config data for AboutTabsFragment");
+        } else {
+            final int id = b.getInt(ARGUMENT_ID,Integer.MIN_VALUE);
+            final Config c = store.get(id);
+            if( c == null ) {
+                Logger.e("Error: No config data for AboutTabsFragment with id:",id);
+            } else {
+                return c;
+            }
+        }
+        return null;
+    }
 
-        binding.setInfo(Util.toHtml(info));
-        binding.setLibsVisible(libs.size() > 0);
-        binding.setLibsTitle(Util.toHtml(libsTitle));
+    private void setData() {
+        binding.setBackground(config.background);
+        binding.setPrimaryTextColor(config.primaryTextColor);
+        binding.setSecondaryTextColor(config.secondaryTextColor);
+        binding.setSectionTitleColor(config.sectionTitleColor);
+        binding.setSectionDividerColor(config.sectionDividerColor);
+
+        binding.setInfo(Util.toHtml(config.info));
+        binding.setLibsVisible(config.libs.size() > 0);
+        binding.setLibsTitle(Util.toHtml(config.libsTitle));
     }
 
     private void addLibs(Context ctx) {
@@ -186,11 +193,28 @@ public class AboutLibFragment extends Fragment {
         layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         binding.layLibs.removeAllViews();
-        for(Lib l : libs) {
+        for(Lib l : config.libs) {
             LibCardView libCardView = new LibCardView(ctx);
             libCardView.setLib(l);
             binding.layLibs.addView(libCardView,layoutParams);
         }
+    }
+    //endregion
+
+
+    //--------------------------------------------------------------------------
+    //region Config data
+    //
+    private static final class Config {
+        int id = Integer.MIN_VALUE;
+        @ColorInt int background;
+        @ColorInt int primaryTextColor;
+        @ColorInt int secondaryTextColor;
+        @ColorInt int sectionTitleColor;
+        @ColorInt int sectionDividerColor;
+        @Nullable String info;
+        @Nullable String libsTitle;
+        List<Lib> libs = new ArrayList<>();
     }
     //endregion
 

@@ -28,6 +28,7 @@ import net.ej3.libs.aboutappdevlib.util.Util;
 import net.ej3.libs.aboutappdevlib.view.AppCardView;
 import net.ej3.libs.aboutappdevlib.view.DevCardView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -293,9 +294,9 @@ public class AboutDevFragment extends Fragment {
         @Nullable String info;
         @Nullable String devsTitle;
         @Nullable String appsTitle;
-        List<View> actions;
-        List<Dev> devs;
-        List<App> apps;
+        List<View> actions = new ArrayList<>();
+        List<Dev> devs = new ArrayList<>();
+        List<App> apps = new ArrayList<>();
     }
     //endregion
 
