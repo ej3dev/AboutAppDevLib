@@ -1,6 +1,10 @@
-#
-# AboutAppDevLib CHANGELOG
-#
+AboutAppDevLib CHANGELOG
+========================
+
+### v1.2.0: Tu.10-Apr-2018
+* Updated third party libraries
+* Added "Rate this app" button
+* Fixed NullPointerException when restore Fragments after long stay in background
 
 ### v1.1.4: Tu.3-Apr-2018
 * Added support for HTML in custom CardView widgets

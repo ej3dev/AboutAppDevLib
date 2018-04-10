@@ -35,6 +35,10 @@ public class AboutTabsFragment extends Fragment {
     //region Constants
     //
     private static final String ARGUMENT_ID = "argument_id";
+    @ColorInt protected static final int DEFAULT_TABS_BACKGROUND_COLOR = 0xff607d8b;
+    @ColorInt protected static final int DEFAULT_TABS_NORMAL_COLOR     = 0x99ffffff;
+    @ColorInt protected static final int DEFAULT_TABS_SELECTED_COLOR   = 0xffffffff;
+    @ColorInt protected static final int DEFAULT_TABS_INDICATOR_COLOR  = 0xffffffff;
     //endregion
 
 
@@ -225,10 +229,10 @@ public class AboutTabsFragment extends Fragment {
     private static final class Config {
         int id = Integer.MIN_VALUE;
         int tabsMode = TabLayout.MODE_FIXED;
-        @ColorInt int tabsBackgroundColor = 0xff607d8b;
-        @ColorInt int tabsNormalColor = 0x99ffffff;
-        @ColorInt int tabsSelectedColor = 0xffffffff;
-        @ColorInt int tabsIndicatorColor = 0xffffffff;
+        @ColorInt int tabsBackgroundColor = DEFAULT_TABS_BACKGROUND_COLOR;
+        @ColorInt int tabsNormalColor = DEFAULT_TABS_NORMAL_COLOR;
+        @ColorInt int tabsSelectedColor = DEFAULT_TABS_SELECTED_COLOR;
+        @ColorInt int tabsIndicatorColor = DEFAULT_TABS_INDICATOR_COLOR;
         List<Object> tabHeader = new ArrayList<>();
         List<Fragment> pages = new ArrayList<>();
     }

@@ -40,8 +40,8 @@ public class AboutAppFragment extends Fragment {
     //
     private static final String ARGUMENT_ID = "argument_id";
     @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
-    @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
-    @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
+    @ColorInt protected static final int DEFAULT_TEXT_PRIMARY_COLOR    = 0xdd000000; //0xdd ~ 87%
+    @ColorInt protected static final int DEFAULT_TEXT_SECONDARY_COLOR  = 0x88000000; //0x88 ~ 54%
     @ColorInt protected static final int DEFAULT_SECTION_TITLE_COLOR   = 0xff546e7a;
     @ColorInt protected static final int DEFAULT_SECTION_DIVIDER_COLOR = 0x22546e7a; //0x22 ~ 13%
     //endregion
@@ -265,8 +265,8 @@ public class AboutAppFragment extends Fragment {
     private static final class Config {
         int id = Integer.MIN_VALUE;
         @ColorInt int background          = DEFAULT_BACKGROUND_COLOR;
-        @ColorInt int primaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
-        @ColorInt int secondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
+        @ColorInt int primaryTextColor    = DEFAULT_TEXT_PRIMARY_COLOR;
+        @ColorInt int secondaryTextColor  = DEFAULT_TEXT_SECONDARY_COLOR;
         @ColorInt int sectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
         @ColorInt int sectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
         @Nullable Drawable icon;

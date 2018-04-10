@@ -56,7 +56,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.ej3dev:AboutAppDevLib:v1.1.2'
+    implementation 'com.github.ej3dev:AboutAppDevLib:v1.2.0'
 }
 ```
 
@@ -133,86 +133,91 @@ Build-in screens
 ### AboutTabsFragment
 ```java
 AboutTabsFragment.Builder(@NonNull final Context ctx)
-    .withTabsMode(int mode);
-    .withTabsBackgroundColor(@ColorInt int tabsBackgroundColor);
-    .withTabsBackgroundColorRes(@ColorRes int tabsBackgroundColorRes);
-    .withTabsNormalColor(@ColorInt int tabsNormalColor);
-    .withTabsNormalColorRes(@ColorRes int tabsNormalColorRes);
-    .withTabsSelectedColor(@ColorInt int tabsSelectedColor);
-    .withTabsSelectedColorRes(@ColorRes int tabsSelectedColorRes);
-    .withTabsIndicatorColor(@ColorInt int tabsIndicatorColor);
-    .withTabsIndicatorColorRes(@ColorRes int tabsIndicatorColorRes);
-    .addPage(@NonNull String tabTitle,@NonNull Fragment fragment);
-    .addPage(@StringRes int tabTitleRes,@NonNull Fragment fragment);
-    .addPageWithIcon(@DrawableRes int tabIcon,@NonNull Fragment fragment);
+    .withId(int id)
+    .withTabsMode(int mode)
+    .withTabsBackgroundColor(@ColorInt int tabsBackgroundColor)
+    .withTabsBackgroundColorRes(@ColorRes int tabsBackgroundColorRes)
+    .withTabsNormalColor(@ColorInt int tabsNormalColor)
+    .withTabsNormalColorRes(@ColorRes int tabsNormalColorRes)
+    .withTabsSelectedColor(@ColorInt int tabsSelectedColor)
+    .withTabsSelectedColorRes(@ColorRes int tabsSelectedColorRes)
+    .withTabsIndicatorColor(@ColorInt int tabsIndicatorColor)
+    .withTabsIndicatorColorRes(@ColorRes int tabsIndicatorColorRes)
+    .addPage(@NonNull String tabTitle,@NonNull Fragment fragment)
+    .addPage(@StringRes int tabTitleRes,@NonNull Fragment fragment)
+    .addPageWithIcon(@DrawableRes int tabIcon,@NonNull Fragment fragment)
 ```
 
 ### AboutAppFragment
 ```java
 AboutAppFragment.Builder(@NonNull final Context ctx)
-    .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
-    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
-    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
-    .withIcon(@Nullable Drawable icon);
-    .withIcon(@DrawableRes int iconRes);
-    .withName(@Nullable String name);
-    .withName(@StringRes int nameRes);
-    .withVersion(@Nullable String version);
-    .withVersion(@StringRes int versionRes);
-    .withCopyright(@Nullable String copyright);
-    .withCopyright(@StringRes int copyrightRes);
-    .withThanks(@Nullable String title,@Nullable String text);
-    .withThanks(@StringRes int titleRes,@StringRes int textRes);
-    .withChangelog(@Nullable String title,@Nullable String text);
-    .withChangelog(@StringRes int titleRes,@StringRes int textRes);
-    .withActions(View... actions);
+    .withId(int id)
+    .withBackgroundColor(@ColorInt int backgroundColor)
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes)
+    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor)
+    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor)
+    .withIcon(@Nullable Drawable icon)
+    .withIcon(@DrawableRes int iconRes)
+    .withName(@Nullable String name)
+    .withName(@StringRes int nameRes)
+    .withVersion(@Nullable String version)
+    .withVersion(@StringRes int versionRes)
+    .withCopyright(@Nullable String copyright)
+    .withCopyright(@StringRes int copyrightRes)
+    .withThanks(@Nullable String title,@Nullable String text)
+    .withThanks(@StringRes int titleRes,@StringRes int textRes)
+    .withChangelog(@Nullable String title,@Nullable String text)
+    .withChangelog(@StringRes int titleRes,@StringRes int textRes)
+    .withActions(View... actions)
 ```
 
 ### AboutDevFragment
 ```java
 AboutDevFragment.Builder(@NonNull final Context ctx)
-    .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
-    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
-    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
-    .withLogo(@Nullable Drawable logo);
-    .withLogo(@DrawableRes int logoRes);
-    .withAuthor(@Nullable String author);
-    .withAuthor(@StringRes int authorRes);
-    .withInfo(@Nullable String info);
-    .withInfo(@StringRes int infoRes);
-    .withActions(View... actions);
-    .withDevs(@Nullable String title,Dev... devs);
-    .withDevs(@StringRes int titleRes,Dev... devs);
-    .withApps(@Nullable String title,App... apps);
-    .withApps(@StringRes int titleRes,App... apps);
+    .withId(int id)
+    .withBackgroundColor(@ColorInt int backgroundColor)
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes)
+    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor)
+    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor)
+    .withLogo(@Nullable Drawable logo)
+    .withLogo(@DrawableRes int logoRes)
+    .withAuthor(@Nullable String author)
+    .withAuthor(@StringRes int authorRes)
+    .withInfo(@Nullable String info)
+    .withInfo(@StringRes int infoRes)
+    .withActions(View... actions)
+    .withDevs(@Nullable String title,Dev... devs)
+    .withDevs(@StringRes int titleRes,Dev... devs)
+    .withApps(@Nullable String title,App... apps)
+    .withApps(@StringRes int titleRes,App... apps)
 ```
 
 ### AboutLibFragment
 ```java
 AboutLibFragment.Builder(@NonNull final Context ctx)
-    .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
-    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
-    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
-    .withInfo(@Nullable String info);
-    .withInfo(@StringRes int infoRes);
-    .withLibs(@Nullable String title,Lib... libs);
-    .withLibs(@StringRes int titleRes,Lib... libs);
+    .withId(int id)
+    .withBackgroundColor(@ColorInt int backgroundColor)
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes)
+    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor)
+    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor)
+    .withInfo(@Nullable String info)
+    .withInfo(@StringRes int infoRes)
+    .withLibs(@Nullable String title,Lib... libs)
+    .withLibs(@StringRes int titleRes,Lib... libs)
 ```
 
 ### AboutFaqFragment
 ```java
 AboutLibFragment.Builder(@NonNull final Context ctx)
-    .withBackgroundColor(@ColorInt int backgroundColor);
-    .withBackgroundColorRes(@ColorRes int backgroundColorRes);
-    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor);
-    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor);
-    .withInfo(@Nullable String info);
-    .withInfo(@StringRes int infoRes);
-    .withFaqs(@Nullable String title,Faq... faqs);
-    .withFaqs(@StringRes int titleRes,Faq... faqs);
+    .withId(int id)
+    .withBackgroundColor(@ColorInt int backgroundColor)
+    .withBackgroundColorRes(@ColorRes int backgroundColorRes)
+    .withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor)
+    .withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor)
+    .withInfo(@Nullable String info)
+    .withInfo(@StringRes int infoRes)
+    .withFaqs(@Nullable String title,Faq... faqs)
+    .withFaqs(@StringRes int titleRes,Faq... faqs)
 ```
 
 
@@ -223,62 +228,64 @@ Build-in buttons
 
 ### Custom buttons
 ```java
-ButtonFactory.customButton(@NonNull final Context ctx,@DrawableRes final int icon,@NonNull final String label,final View.OnClickListener onClick);
-ButtonFactory.customButton(@NonNull final Context ctx,@DrawableRes final int iconRes,@StringRes final int labelRes,final View.OnClickListener onClick);
+ButtonFactory.customButton(@NonNull final Context ctx,@DrawableRes final int icon,@NonNull final String label,final View.OnClickListener onClick)
+ButtonFactory.customButton(@NonNull final Context ctx,@DrawableRes final int iconRes,@StringRes final int labelRes,final View.OnClickListener onClick)
 ```
 
 ### System action buttons
 ```java
-ButtonFactory.openUrl(@NonNull final Context ctx,@NonNull final String label,@NonNull final String url);
-ButtonFactory.openUrl(@NonNull final Context ctx,@StringRes final int labelRes,@StringRes final int urlRes);
-ButtonFactory.openAddContact(@NonNull final Context ctx,@NonNull final String name,@NonNull final String phone);
-ButtonFactory.openAddContact(@NonNull final Context ctx,@StringRes final int nameRes,@StringRes final int phoneRes);
-ButtonFactory.sendEmail(@NonNull final Context ctx,@NonNull final String email,@NonNull final String subject,@NonNull final String message);
-ButtonFactory.sendEmail(@NonNull final Context ctx,@StringRes final int emailRes,@StringRes final int subjectRes,@StringRes final int messageRes);
-ButtonFactory.shareThisApp(@NonNull final Context ctx,@NonNull final String subject,@NonNull final String message);
-ButtonFactory.shareThisApp(@NonNull final Context ctx,@StringRes final int subjectRes,@StringRes final int messageRes);
-ButtonFactory.callPhone(@NonNull final Context ctx,@NonNull final String phone);
-ButtonFactory.callPhone(@NonNull final Context ctx,@StringRes final int phoneRes);
-ButtonFactory.openMap(@NonNull final Context ctx,@Nullable final String place,final double latitude,final double longitude,final int zoom);
-ButtonFactory.openMap(@NonNull final Context ctx,@StringRes final int placeRes,final double latitude,final double longitude,final int zoom);
+ButtonFactory.openUrl(@NonNull final Context ctx,@NonNull final String label,@NonNull final String url)
+ButtonFactory.openUrl(@NonNull final Context ctx,@StringRes final int labelRes,@StringRes final int urlRes)
+ButtonFactory.openAddContact(@NonNull final Context ctx,@NonNull final String name,@NonNull final String phone)
+ButtonFactory.openAddContact(@NonNull final Context ctx,@StringRes final int nameRes,@StringRes final int phoneRes)
+ButtonFactory.sendEmail(@NonNull final Context ctx,@NonNull final String email,@NonNull final String subject,@NonNull final String message)
+ButtonFactory.sendEmail(@NonNull final Context ctx,@StringRes final int emailRes,@StringRes final int subjectRes,@StringRes final int messageRes)
+ButtonFactory.shareThisApp(@NonNull final Context ctx,@NonNull final String subject,@NonNull final String message)
+ButtonFactory.shareThisApp(@NonNull final Context ctx,@StringRes final int subjectRes,@StringRes final int messageRes)
+ButtonFactory.callPhone(@NonNull final Context ctx,@NonNull final String phone)
+ButtonFactory.callPhone(@NonNull final Context ctx,@StringRes final int phoneRes)
+ButtonFactory.openMap(@NonNull final Context ctx,@Nullable final String place,final double latitude,final double longitude,final int zoom)
+ButtonFactory.openMap(@NonNull final Context ctx,@StringRes final int placeRes,final double latitude,final double longitude,final int zoom)
 ```
 
 ### Repositories
 ```java
-ButtonFactory.openGithub(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openGithub(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openBitbucket(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openBitbucket(@NonNull final Context ctx,@StringRes final int userRes);
+ButtonFactory.openGithub(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openGithub(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openBitbucket(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openBitbucket(@NonNull final Context ctx,@StringRes final int userRes)
 ```
 
 ### Apps
 ```java
-ButtonFactory.openInstagram(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openInstagram(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openFacebook(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openFacebook(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openTwitter(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openTwitter(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openGooglePlus(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openGooglePlus(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openYoutubeChannel(@NonNull final Context ctx,@NonNull final String channel);
-ButtonFactory.openYoutubeChannel(@NonNull final Context ctx,@StringRes final int channelRes);
-ButtonFactory.openYoutubeUser(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openYoutubeUser(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openLinkedIn(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openLinkedIn(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openSkype(@NonNull final Context ctx,@NonNull final String phone);
-ButtonFactory.openSkype(@NonNull final Context ctx,@StringRes final int phoneRes);
+ButtonFactory.openInstagram(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openInstagram(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openFacebook(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openFacebook(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openTwitter(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openTwitter(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openGooglePlus(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openGooglePlus(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openYoutubeChannel(@NonNull final Context ctx,@NonNull final String channel)
+ButtonFactory.openYoutubeChannel(@NonNull final Context ctx,@StringRes final int channelRes)
+ButtonFactory.openYoutubeUser(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openYoutubeUser(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openLinkedIn(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openLinkedIn(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openSkype(@NonNull final Context ctx,@NonNull final String phone)
+ButtonFactory.openSkype(@NonNull final Context ctx,@StringRes final int phoneRes)
 ```
 
 ### Play Store
 ```java
-ButtonFactory.openPlayStoreDev(@NonNull final Context ctx,@NonNull final String user);
-ButtonFactory.openPlayStoreDev(@NonNull final Context ctx,@StringRes final int userRes);
-ButtonFactory.openPlayStoreAppPage(@NonNull final Context ctx,@NonNull final String app);
-ButtonFactory.openPlayStoreAppPage(@NonNull final Context ctx,@StringRes final int appRes);
-ButtonFactory.openPlayStoreAppsList(@NonNull final Context ctx,@NonNull final String app);
-ButtonFactory.openPlayStoreAppsList(@NonNull final Context ctx,@StringRes final int appRes);
+ButtonFactory.openPlayStoreDev(@NonNull final Context ctx,@NonNull final String user)
+ButtonFactory.openPlayStoreDev(@NonNull final Context ctx,@StringRes final int userRes)
+ButtonFactory.openPlayStoreAppPage(@NonNull final Context ctx,@NonNull final String app)
+ButtonFactory.openPlayStoreAppPage(@NonNull final Context ctx,@StringRes final int appRes)
+ButtonFactory.openPlayStoreAppsList(@NonNull final Context ctx,@NonNull final String app)
+ButtonFactory.openPlayStoreAppsList(@NonNull final Context ctx,@StringRes final int appRes)
+ButtonFactory.rateThisApp(@NonNull final Context ctx,@NonNull final String app)
+ButtonFactory.rateThisApp(@NonNull final Context ctx,@StringRes final int appRes)
 ```
 
 
@@ -291,49 +298,49 @@ Build-in cards
 ```java
 AppBuilder(@NonNull final Context ctx,@NonNull final String name)
 AppBuilder(@NonNull final Context ctx,@StringRes final int nameRes)
-    .withUrlOrPackageName(@Nullable final String urlOrPackageName);
-    .withUrlOrPackageName(@StringRes final int urlOrPackageNameRes);
-    .withDescription(@Nullable final String description);
-    .withDescription(@StringRes final int descriptionRes);
-    .withIcon(@Nullable final Drawable icon);
-    .withIcon(@DrawableRes final int iconRes);
+    .withUrlOrPackageName(@Nullable final String urlOrPackageName)
+    .withUrlOrPackageName(@StringRes final int urlOrPackageNameRes)
+    .withDescription(@Nullable final String description)
+    .withDescription(@StringRes final int descriptionRes)
+    .withIcon(@Nullable final Drawable icon)
+    .withIcon(@DrawableRes final int iconRes)
 ```
 
 ### Dev
 ```java
 DevBuilder(@NonNull final Context ctx,@NonNull final String name)
 DevBuilder(@NonNull final Context ctx,@StringRes final int nameRes)
-    .withJob(@Nullable final String job);
-    .withJob(@StringRes final int jobRes);
-    .withBio(@Nullable final String bio);
-    .withBio(@StringRes final int bioRes);
-    .withPhoto(@Nullable final Drawable photo);
-    .withPhoto(@DrawableRes final int photoRes);
-    .withUrl(@Nullable final String url);
-    .withUrl(@StringRes final int urlRes);
+    .withJob(@Nullable final String job)
+    .withJob(@StringRes final int jobRes)
+    .withBio(@Nullable final String bio)
+    .withBio(@StringRes final int bioRes)
+    .withPhoto(@Nullable final Drawable photo)
+    .withPhoto(@DrawableRes final int photoRes)
+    .withUrl(@Nullable final String url)
+    .withUrl(@StringRes final int urlRes)
 ```
 
 ### Lib
 ```java
 LibBuilder(@NonNull final Context ctx,@NonNull final String name)
 LibBuilder(@NonNull final Context ctx,@StringRes final int nameRes)
-    .withAuthor(@Nullable final String author);
-    .withAuthor(@StringRes final int authorRes);
-    .withDescription(@Nullable final String description);
-    .withDescription(@StringRes final int descriptionRes);
-    .withIcon(@Nullable final Drawable icon);
-    .withIcon(@DrawableRes final int iconRes);
-    .withUrl(@Nullable final String url);
-    .withUrl(@StringRes final int urlRes);
+    .withAuthor(@Nullable final String author)
+    .withAuthor(@StringRes final int authorRes)
+    .withDescription(@Nullable final String description)
+    .withDescription(@StringRes final int descriptionRes)
+    .withIcon(@Nullable final Drawable icon)
+    .withIcon(@DrawableRes final int iconRes)
+    .withUrl(@Nullable final String url)
+    .withUrl(@StringRes final int urlRes)
 ```
 
 ### Faq
 ```java
 FaqBuilder(@NonNull final Context ctx,@NonNull final String question)
 FaqBuilder(@NonNull final Context ctx,@StringRes final int questionRes)
-    .withAnswer(@Nullable final String answer);
-    .withAnswer(@StringRes final int answerRes);
-    .isOpen(final boolean open);
+    .withAnswer(@Nullable final String answer)
+    .withAnswer(@StringRes final int answerRes)
+    .isOpen(final boolean open)
 ```
 
 
@@ -343,6 +350,8 @@ Apps using the AboutAppDevLib
 Send me an [email](emailto:ej3dev@gmail.com) to add new apps to this list:
 
 * [Reminder Alarm](https://play.google.com/store/apps/details?id=net.ej3.apps.reminderalarm)
+* [Oposiciones Educación Secundaria](https://play.google.com/store/apps/details?id=net.ej3.apps.oposicioneseducacionsecundaria)
+* [AboutAppDevLib Demo App](https://play.google.com/store/apps/details?id=net.ej3.libs.aboutappdevlib.app)
 
 
 License

@@ -52,11 +52,16 @@
     <string name="about_app_share_message">Please, take a look to AboutAppDevLib Demo:\n%s</string>
     <string name="about_app_thanks_title">Thanks</string>
     <string name="about_app_thanks_text">
-    	Thanks to the people who send me their ideas and comments to improve this lib.
+    	&lt;b>Thanks to the people&lt;/b> who send me their ideas and comments to improve this lib.
     </string>
     <string name="about_app_changelog_title">Changelog</string>
     <string name="about_app_changelog_text">
-		&lt;b>&lt;big>v1.1.4:&lt;/big> Tu.3-Apr-2018&lt;/b>
+		&lt;b>&lt;big>v1.2.0:&lt;/big> Tu.10-Apr-2018&lt;/b>
+        &lt;br/>* Updated third party libraries
+        &lt;br/>* Added "Rate this app" button
+        &lt;br/>* Fixed NullPointerException when restore Fragments after long stay in background
+        &lt;br/>
+		&lt;br/>&lt;b>&lt;big>v1.1.4:&lt;/big> Tu.3-Apr-2018&lt;/b>
         &lt;br/>* Added support for HTML in custom CardView widgets
         &lt;br/>* Fixed minor bugs
         &lt;br/>

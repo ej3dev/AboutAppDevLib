@@ -44,8 +44,8 @@ public class AboutDevFragment extends Fragment {
     //
     private static final String ARGUMENT_ID = "argument_id";
     @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
-    @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
-    @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
+    @ColorInt protected static final int DEFAULT_TEXT_PRIMARY_COLOR    = 0xdd000000; //0xdd ~ 87%
+    @ColorInt protected static final int DEFAULT_TEXT_SECONDARY_COLOR  = 0x88000000; //0x88 ~ 54%
     @ColorInt protected static final int DEFAULT_SECTION_TITLE_COLOR   = 0xff546e7a;
     @ColorInt protected static final int DEFAULT_SECTION_DIVIDER_COLOR = 0x22546e7a; //0x22 ~ 13%
     //endregion
@@ -188,10 +188,13 @@ public class AboutDevFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.about_dev_fragment,container,false);
-        setData();
-        addActions();
-        addDevs(inflater.getContext());
-        addApps(inflater.getContext());
+        config = getConfig();
+        if( config != null ) {
+            setData();
+            addActions();
+            addDevs(inflater.getContext());
+            addApps(inflater.getContext());
+        }
         return binding.getRoot();
     }
 
@@ -284,11 +287,11 @@ public class AboutDevFragment extends Fragment {
     //
     private static final class Config {
         int id = Integer.MIN_VALUE;
-        @ColorInt int background;
-        @ColorInt int primaryTextColor;
-        @ColorInt int secondaryTextColor;
-        @ColorInt int sectionTitleColor;
-        @ColorInt int sectionDividerColor;
+        @ColorInt int background = DEFAULT_BACKGROUND_COLOR;
+        @ColorInt int primaryTextColor = DEFAULT_TEXT_PRIMARY_COLOR;
+        @ColorInt int secondaryTextColor = DEFAULT_TEXT_SECONDARY_COLOR;
+        @ColorInt int sectionTitleColor = DEFAULT_SECTION_TITLE_COLOR;
+        @ColorInt int sectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
         @Nullable Drawable logo;
         @Nullable String author;
         @Nullable String info;
