@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,7 @@ import java.util.List;
 
 /**
  * @author E.J. Jiménez
- * @version 20180316
+ * @version 20180410
  */
 @SuppressWarnings("unused")
 public class AboutFaqFragment extends Fragment {
@@ -35,8 +36,8 @@ public class AboutFaqFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Constants
     //
-    @ColorInt
-    protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
+    private static final String ARGUMENT_ID = "argument_id";
+    @ColorInt protected static final int DEFAULT_BACKGROUND_COLOR      = 0xffeceff1;
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_PRIMARY    = 0xdd000000; //0xdd ~ 87%
     @ColorInt protected static final int DEFAULT_TEXT_COLOR_SECONDARY  = 0x88000000; //0x88 ~ 54%
     @ColorInt protected static final int DEFAULT_SECTION_TITLE_COLOR   = 0xff546e7a;
@@ -47,15 +48,8 @@ public class AboutFaqFragment extends Fragment {
     //--------------------------------------------------------------------------
     //region Properties
     //
-    @ColorInt private int background;
-    @ColorInt private int primaryTextColor;
-    @ColorInt private int secondaryTextColor;
-    @ColorInt private int sectionTitleColor;
-    @ColorInt private int sectionDividerColor;
-
-    @Nullable
-    private String info;
-    @Nullable private String faqsTitle;
+    private static final SparseArray<Config> store = new SparseArray<>();
+    private Config config;
     //endregion
 
 
@@ -63,7 +57,6 @@ public class AboutFaqFragment extends Fragment {
     //region Components
     //
     private AboutFaqFragmentBinding binding;
-    private List<Faq> faqs;
     //endregion
 
 
@@ -72,80 +65,73 @@ public class AboutFaqFragment extends Fragment {
     //
     public static final class Builder {
         Context ctx;
-        @ColorInt int mBackground          = DEFAULT_BACKGROUND_COLOR;
-        @ColorInt int mPrimaryTextColor    = DEFAULT_TEXT_COLOR_PRIMARY;
-        @ColorInt int mSecondaryTextColor  = DEFAULT_TEXT_COLOR_SECONDARY;
-        @ColorInt int mSectionTitleColor   = DEFAULT_SECTION_TITLE_COLOR;
-        @ColorInt int mSectionDividerColor = DEFAULT_SECTION_DIVIDER_COLOR;
-
-        @Nullable String mInfo;
-        @Nullable String mFaqsTitle;
-        List<Faq> mFaqs = new ArrayList<>();
+        Config mConfig;
 
         public Builder(@NonNull final Context ctx) {
             this.ctx = ctx;
+            mConfig = new Config();
+        }
+
+        public Builder withId(int id) {
+            mConfig.id = (id == Integer.MIN_VALUE ? id+1 : id);
+            return this;
         }
 
         public AboutFaqFragment.Builder withBackgroundColor(@ColorInt int backgroundColor) {
-            mBackground = backgroundColor;
+            mConfig.background = backgroundColor;
             return this;
         }
 
         public AboutFaqFragment.Builder withBackgroundColorRes(@ColorRes int backgroundColorRes) {
-            mBackground = ContextCompat.getColor(ctx,backgroundColorRes);
+            mConfig.background = ContextCompat.getColor(ctx,backgroundColorRes);
             return this;
         }
 
         public AboutFaqFragment.Builder withTextColors(@ColorInt int primaryColor,@ColorInt int secondaryColor,@ColorInt int sectionColor) {
-            mPrimaryTextColor = primaryColor;
-            mSecondaryTextColor = secondaryColor;
-            mSectionTitleColor = sectionColor;
-            mSectionDividerColor = (0x22000000 | (sectionColor & 0xffffff));
+            mConfig.primaryTextColor = primaryColor;
+            mConfig.secondaryTextColor = secondaryColor;
+            mConfig.sectionTitleColor = sectionColor;
+            mConfig.sectionDividerColor = (0x22000000 | (sectionColor & 0xffffff));
             return this;
         }
 
         public AboutFaqFragment.Builder withTextColorsRes(@ColorRes int primaryColor,@ColorRes int secondaryColor,@ColorRes int sectionColor) {
-            mPrimaryTextColor = ContextCompat.getColor(ctx,primaryColor);
-            mSecondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
-            mSectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
-            mSectionDividerColor = (0x22000000 | (mSectionTitleColor & 0xffffff));
+            mConfig.primaryTextColor = ContextCompat.getColor(ctx,primaryColor);
+            mConfig.secondaryTextColor = ContextCompat.getColor(ctx,secondaryColor);
+            mConfig.sectionTitleColor = ContextCompat.getColor(ctx,sectionColor);
+            mConfig.sectionDividerColor = (0x22000000 | (mConfig.sectionTitleColor & 0xffffff));
             return this;
         }
 
         public AboutFaqFragment.Builder withInfo(@Nullable String info) {
-            mInfo = info;
+            mConfig.info = info;
             return this;
         }
 
         public AboutFaqFragment.Builder withInfo(@StringRes int infoRes) {
-            mInfo = ctx.getString(infoRes);
+            mConfig.info = ctx.getString(infoRes);
             return this;
         }
 
         public AboutFaqFragment.Builder withFaqs(@Nullable String title,Faq... faqs) {
-            mFaqsTitle = title;
-            mFaqs.addAll(Arrays.asList(faqs));
+            mConfig.faqsTitle = title;
+            mConfig.faqs.addAll(Arrays.asList(faqs));
             return this;
         }
 
         public AboutFaqFragment.Builder withFaqs(@StringRes int titleRes,Faq... faqs) {
-            mFaqsTitle = ctx.getString(titleRes);
-            mFaqs.addAll(Arrays.asList(faqs));
+            mConfig.faqsTitle = ctx.getString(titleRes);
+            mConfig.faqs.addAll(Arrays.asList(faqs));
             return this;
         }
 
         public AboutFaqFragment build() {
             AboutFaqFragment aboutFaqFragment = new AboutFaqFragment();
-            aboutFaqFragment.background = mBackground;
-            aboutFaqFragment.primaryTextColor = mPrimaryTextColor;
-            aboutFaqFragment.secondaryTextColor = mSecondaryTextColor;
-            aboutFaqFragment.sectionTitleColor = mSectionTitleColor;
-            aboutFaqFragment.sectionDividerColor = mSectionDividerColor;
-
-            aboutFaqFragment.info = mInfo;
-            aboutFaqFragment.faqsTitle = mFaqsTitle;
-            aboutFaqFragment.faqs = mFaqs;
-
+            if( mConfig.id == Integer.MIN_VALUE ) mConfig.id = aboutFaqFragment.hashCode();
+            store.put(mConfig.id,mConfig);
+            final Bundle b = new Bundle();
+            b.putInt(ARGUMENT_ID,mConfig.id);
+            aboutFaqFragment.setArguments(b);
             return aboutFaqFragment;
         }
     }
@@ -170,15 +156,15 @@ public class AboutFaqFragment extends Fragment {
     //region Utils
     //
     private void setData() {
-        binding.setBackground(background);
-        binding.setPrimaryTextColor(primaryTextColor);
-        binding.setSecondaryTextColor(secondaryTextColor);
-        binding.setSectionTitleColor(sectionTitleColor);
-        binding.setSectionDividerColor(sectionDividerColor);
+        binding.setBackground(config.background);
+        binding.setPrimaryTextColor(config.primaryTextColor);
+        binding.setSecondaryTextColor(config.secondaryTextColor);
+        binding.setSectionTitleColor(config.sectionTitleColor);
+        binding.setSectionDividerColor(config.sectionDividerColor);
 
-        binding.setInfo(Util.toHtml(info));
-        binding.setFaqsVisible(faqs.size() > 0);
-        binding.setFaqsTitle(Util.toHtml(faqsTitle));
+        binding.setInfo(Util.toHtml(config.info));
+        binding.setFaqsVisible(config.faqs.size() > 0);
+        binding.setFaqsTitle(Util.toHtml(config.faqsTitle));
     }
 
     private void addFaqs(Context ctx) {
@@ -188,11 +174,28 @@ public class AboutFaqFragment extends Fragment {
         layoutParams.leftMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         layoutParams.rightMargin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,getResources().getDisplayMetrics());
         binding.layFaqs.removeAllViews();
-        for(Faq f : faqs) {
+        for(Faq f : config.faqs) {
             FaqCardView faqCardView = new FaqCardView(ctx);
             faqCardView.setFaq(f);
             binding.layFaqs.addView(faqCardView,layoutParams);
         }
+    }
+    //endregion
+
+
+    //--------------------------------------------------------------------------
+    //region Config data
+    //
+    private static final class Config {
+        int id = Integer.MIN_VALUE;
+        @ColorInt int background;
+        @ColorInt int primaryTextColor;
+        @ColorInt int secondaryTextColor;
+        @ColorInt int sectionTitleColor;
+        @ColorInt int sectionDividerColor;
+        @Nullable String info;
+        @Nullable String faqsTitle;
+        List<Faq> faqs = new ArrayList<>();
     }
     //endregion
 
